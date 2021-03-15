@@ -1,17 +1,21 @@
-import './App.css';
-import Dialogs from "./Components/Dialogs/Dialogs";
+import React from 'react'
+import './App.css'
+import Header from './components/Header/Header'
+import Navbar from './components/Navbar/Navbar'
+import NumericInput from './components/NumericField/NumericField'
+import Profile from './components/Profile/Profile'
 
-function App() {
-    return (
-        <div className="App">
-            <header className="App-header">
-                <div>Hello World! Бляяяяять</div>
-            </header>
-            <div className={'app-wrapper-content'}>
-                <Dialogs name='Напишу тут Хуету' />
-            </div>
-        </div>
-    );
+const App = () => {
+  return (
+    <div className='appWrapper'>
+      
+        <Header />
+        <Navbar />
+        <Profile />
+        <NumericInput />
+        
+    </div>
+  );
 }
 
 export default App;

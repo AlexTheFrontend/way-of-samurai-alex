@@ -11,7 +11,7 @@ const App = () => {
     <div className='appWrapper'>
         <Header />
         <Navbar />
-        <Dialogs />
+        <Dialogs name='hello'/>
         {/*<Profile />*/}
         <NumericInput />
 

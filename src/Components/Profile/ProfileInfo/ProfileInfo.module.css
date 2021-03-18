@@ -1,0 +1,11 @@
+.profile_img {
+    border-radius: 10px;
+    width: 600px;
+    height: 100px;
+  }
+
+  .content {
+    grid-area: c;
+    background-color:cornflowerblue;
+      padding: 10px;
+  }

@@ -1,4 +1,22 @@
 .d {
     background: deepskyblue;
-    height: 10rem;
+    /*height: 10rem;*/
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+}
+
+.dialog {
+
+}
+
+.dialogItems .active {
+    color: gold;
+}
+
+.messages {
+
+}
+
+.message {
+
 }

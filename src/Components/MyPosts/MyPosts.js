@@ -1,14 +1,20 @@
 import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Posts/Post';
+import styles from "../Dialogs/Dialogs.module.css";
 
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 
-    let postsData = [
+    let posts = [
         {id: 1, message: 'Hi how are you?', likesCount: 10},
         {id: 2, message: 'It is my 1st post', likesCount: 15},
+        {id: 2, message: 'Haha how are you mate?', likesCount: 18},
+        {id: 2, message: 'Sweet as!', likesCount: 46},
     ]
+
+    let postElements = posts
+        .map ( p => <Post message={p.message} likesCount={p.likesCount} />)
 
     return (
         <div className={classes.content}>
@@ -22,8 +28,7 @@ const MyPosts = () => {
                 </div>
             </div>
             <div className={classes.post}>
-                <Post message={postsData[0].message} like={postsData[0].likesCount}/>
-                <Post message={postsData[1].message} like={postsData[1].likesCount}/>
+                { postElements }
             </div>
 
         </div>

@@ -19,44 +19,41 @@ const MessageItem = (props) => {
 
 const Dialogs = (props) => {
 
-    let dialogsData = [
+    let dialogs = [
         {id: 1, name: 'Sergey'},
         {id: 2, name: 'Dennis'},
         {id: 3, name: 'Roman'},
         {id: 4, name: 'Nadya'},
         {id: 5, name: 'Dima'},
         {id: 6, name: 'Julia'},
-    ]
+    ];
 
-    let messageList = [
+    let messages = [
         {id: 1, message: 'Hello'},
         {id: 2, message: 'Sup!'},
         {id: 3, message: 'Bruuuuuuuu'},
         {id: 4, message: 'Bruuuuuuuueeeeeee'},
         {id: 5, message: 'Bruuuuuuuueeeeeeadsadade'},
         {id: 6, message: 'Bruuuuuuuueeeeeeasdasdasdasdade'},
-    ]
+        {id: 7, message: 'Blyyyyaaaat'},
+        {id: 8, message: 'Dennis'},
+    ];
 
+    let dialogsElement = dialogs
+        .map( d => <DialogItem name={d.name} id={d.id}/> );
+
+
+    let messageElement = messages
+        .map( m => <MessageItem message={m.message} id={m.id}/> );
 
     return (
 
         <div className={styles.d}>
-            {/*{props.name} Dialogs*/}
             <div className={styles.dialogItems}>
-                <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
-                <DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
-                <DialogItem name={dialogsData[2].name} id={dialogsData[2].id}/>
-                <DialogItem name={dialogsData[3].name} id={dialogsData[3].id}/>
-                <DialogItem name={dialogsData[4].name} id={dialogsData[4].id}/>
-                <DialogItem name={dialogsData[5].name} id={dialogsData[5].id}/>
+                { dialogsElement }
             </div>
             <div className={styles.messages}>
-                <MessageItem message={messageList[0].message}/>
-                <MessageItem message={messageList[1].message}/>
-                <MessageItem message={messageList[2].message}/>
-                <MessageItem message={messageList[3].message}/>
-                <MessageItem message={messageList[4].message}/>
-                <MessageItem message={messageList[5].message}/>
+                { messageElement }
             </div>
         </div>
 

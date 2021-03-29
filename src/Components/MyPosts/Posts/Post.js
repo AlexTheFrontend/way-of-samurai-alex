@@ -3,14 +3,13 @@ import classes from './Post.module.css';
 
 
 const Post = (pizdec) => {
-    debugger;
     return (
         <div>
             <div className={classes.item}>
-                {pizdec.message};
-            <div>
-                    Likes {pizdec.like}
-            </div>
+                {pizdec.message}
+                <div>
+                    Likes: {pizdec.likesCount}
+                </div>
             </div>
         </div>
     )

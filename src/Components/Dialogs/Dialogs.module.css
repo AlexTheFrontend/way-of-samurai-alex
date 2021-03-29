@@ -9,12 +9,20 @@
 
 }
 
+.appWrapper {
+    color: red;
+}
+
+.dialogItems {
+
+}
+
 .dialogItems .active {
     color: gold;
 }
 
 .messages {
-
+    color: white;
 }
 
 .message {

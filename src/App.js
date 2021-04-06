@@ -9,6 +9,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Music from "./Components/NewsMusicSettings/Music";
 import News from "./Components/NewsMusicSettings/News";
 import Settings from "./Components/NewsMusicSettings/Settings";
+import Friends from "./Components/Friends/Friends";
 // import { useRouter } from 'next/router'
 // import Link from 'next/link'
 
@@ -43,6 +44,7 @@ const App = (props) => {
                     <Route path="/news" render={() => <News/>}/>
                     <Route path="/music" render={() => <Music/>}/>
                     <Route path="/settings" render={() => <Settings/>}/>
+                    <Route path="/friends" render={() => <Friends/>}/>
                 </div>
                 {/*for testing purposes*/}
                 {/*<NumericInput/>*/}

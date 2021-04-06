@@ -1,6 +1,7 @@
-.nav {
+.container {
     grid-area: n;
     background-color: black;
+    min-height: 80vh;
   }
 
   .item a{
@@ -10,4 +11,14 @@
 
   .item a.active {
       color: gold;
+  }
+
+  .friends a{
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+  }
+
+  .friends {
+      margin-top: 20px;
   }

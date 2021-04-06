@@ -28,7 +28,10 @@ let state = {
         {id: 7, message: 'Some Russian developer, I think'},
         {id: 8, message: 'I want to hire him now!'},
     ],
-    }
+    },
+    sitebar: {
+        
+    },
 }
 
 export default state;

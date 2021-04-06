@@ -5,8 +5,8 @@ let state = {
     posts: [
         {id: 1, message: 'Hi how are you?', likesCount: 10},
         {id: 2, message: 'It is my 1st post', likesCount: 15},
-        {id: 2, message: 'Haha how are you mate?', likesCount: 18},
-        {id: 2, message: 'Sweet as!', likesCount: 46},
+        {id: 3, message: 'Haha how are you mate?', likesCount: 18},
+        {id: 4, message: 'Sweet as!', likesCount: 46},
     ],
     },
     messagesPage: {
@@ -32,6 +32,17 @@ let state = {
     sitebar: {
         
     },
+}
+
+export let addPost = (postMessage) => {
+
+    let newPost = {
+        id: 10,
+        message: postMessage,
+        likesCount: 0,
+    };
+
+    state.profilePage.posts.push(newPost);
 }
 
 export default state;

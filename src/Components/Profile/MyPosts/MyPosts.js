@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Posts/Post';
 import styles from "../../Dialogs/Dialogs.module.css";
+// import {addPost} from "../../../Redux/State";
 
 
 const MyPosts = (props) => {
@@ -20,8 +21,9 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef();
 
     let addPost = () => {
+
         let text = newPostElement.current.value;
-            alert(text)
+            props.addPost(text);
     }
 
     return (

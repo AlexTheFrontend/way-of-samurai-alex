@@ -32,7 +32,9 @@ const App = (props) => {
                     {/*<Route path="/settings" component={Settings}/>*/}
 
                     <Route path="/profile" render={() => <Profile
-                        posts={props.state.profilePage.posts}/>}
+                        posts={props.state.profilePage.posts}
+                        addPost={props.addPost}
+                    />}
                     />
                     {/*the way to do it if defining on top*/}
                     {/*with props.messages I am taking data from the level above*/}

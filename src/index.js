@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import state from './Redux/State'
+import {addPost} from "./Redux/State";
 
 // storing data for practice purposes
 
+// addPost('Alex Is Here')
+
 ReactDOM.render(
     <React.StrictMode>
-        <App state={state}/>
+        <App state={state} addPost={addPost}/>
     </React.StrictMode>,
     document.getElementById('root')
 );

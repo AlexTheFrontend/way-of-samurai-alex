@@ -23,16 +23,23 @@ const App = (props) => {
 
                 {/*For routing purposes*/}
                 <div className="appWrapperContent">
+                    {/* Alternative way which is not going to be used*/}
                     {/*<Route path="/profile" component={Profile}/>*/}
                     {/*<Route path="/dialogs" component={Dialogs}/>*/}
                     {/*<Route path="/news" component={News}/>*/}
                     {/*<Route path="/music" component={Music}/>*/}
                     {/*<Route path="/settings" component={Settings}/>*/}
 
-                    <Route path="/profile" render={() => <Profile posts={props.posts} />}/>
+                    <Route path="/profile" render={() => <Profile
+                        posts={props.state.profilePage.posts}/>}
+                    />
                     {/*the way to do it if defining on top*/}
                     {/*with props.messages I am taking data from the level above*/}
-                    <Route path="/dialogs" render={() => <Dialogs dialogs={props.dialogs} messages={props.messages} />}/>
+                    <Route path="/dialogs"
+                           render={() => <Dialogs
+                               dialogs={props.state.messagesPage.dialogs}
+                               messages={props.state.messagesPage.messages}/>
+                           }/>
                     <Route path="/news" render={() => <News/>}/>
                     <Route path="/music" render={() => <Music/>}/>
                     <Route path="/settings" render={() => <Settings/>}/>

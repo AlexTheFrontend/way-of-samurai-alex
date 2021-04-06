@@ -19,7 +19,6 @@ const MessageItem = (props) => {
 
 const Dialogs = (props) => {
 
-
     // with props.messages I am taking data from the level above
     let dialogsElement = props.dialogs
         .map(d => <DialogItem name={d.name} id={d.id}/>);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Posts/Post';
 import styles from "../../Dialogs/Dialogs.module.css";
@@ -13,7 +13,16 @@ const MyPosts = (props) => {
     //     {id: 2, message: 'Sweet as!', likesCount: 46},
     // ]
 
-    let postElements = props.posts.map ( p => <Post message={p.message} likesCount={p.likesCount} />)
+    let postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
+
+    // const [post, setPost] = useState({});
+
+    let newPostElement = React.createRef();
+
+    let addPost = () => {
+        let text = newPostElement.current.value;
+            alert(text)
+    }
 
     return (
         <div className={classes.content}>
@@ -21,13 +30,13 @@ const MyPosts = (props) => {
                 <h3>My posts</h3>
             </div>
             <div>
-                <textarea></textarea>
+                <textarea ref={newPostElement}></textarea>
                 <div>
-                    <button>Add Post</button>
+                    <button onClick={addPost}>Add Post</button>
                 </div>
             </div>
             <div className={classes.post}>
-                { postElements }
+                {postElements}
             </div>
 
         </div>

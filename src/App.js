@@ -32,8 +32,10 @@ const App = (props) => {
                     {/*<Route path="/settings" component={Settings}/>*/}
 
                     <Route path="/profile" render={() => <Profile
-                        posts={props.state.profilePage.posts}
+                        profilePage={props.state.profilePage}
                         addPost={props.addPost}
+                        addNewPost={props.addNewPost}
+                        // newPost={props.newPostText}
                     />}
                     />
                     {/*the way to do it if defining on top*/}

@@ -1,6 +1,8 @@
 // Creating an object with massive of data
-import {rerenderEntireTree} from "../Render";
 
+let rerenderEntireTree = () => {
+    console.log('State has been changed - Sasha')
+};
 
 let state = {
 
@@ -37,9 +39,9 @@ let state = {
 }
 
 // to display - state - in console and see what is currently logged in
-// window.state = state;
+window.state = state;
 
-export let addPost = () => {
+export const addPost = () => {
 
     let newPost = {
         id: 10,
@@ -53,10 +55,15 @@ export let addPost = () => {
     rerenderEntireTree(state);
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
 
     state.profilePage.newPostText = newText;
     rerenderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
+    // this is a pattern for observer
 }
 
 export default state;

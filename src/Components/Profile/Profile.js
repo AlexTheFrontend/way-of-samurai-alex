@@ -13,9 +13,8 @@ const Profile = (props) => {
             {/*we send path through props from MyPosts */}
             {/*we take a data from profilePage (state) array*/}
             <MyPosts posts={props.profilePage.posts}
-                     addPost={props.addPost}
+                     dispatch={props.dispatch}
                      newPostText={props.profilePage.newPostText}
-                     addNewPost={props.addNewPost}
             />
         </div>
     );

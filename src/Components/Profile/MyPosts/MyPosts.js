@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Posts/Post';
 import styles from "../../Dialogs/Dialogs.module.css";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../Redux/State";
 // import {addPost} from "../../../Redux/State";
-
 
 const MyPosts = (props) => {
 
@@ -23,15 +23,17 @@ const MyPosts = (props) => {
   let addPost = () => {
 
     // props.addPost();
-    props.dispatch({ type: 'ADD-POST' });
+    props.dispatch(addPostActionCreator());
   }
+
 
   let onPostChange = () => {
     // addNewPost={props.addNewPost}
     let text = newPostElement.current.value;
     // props.addNewPost(text);
     // same as addPost above
-    let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+    // let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+    let action = updateNewPostTextActionCreator(text);
     props.dispatch(action);
   }
 

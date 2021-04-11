@@ -1,5 +1,8 @@
 // Creating an object with massive of data
 
+const addPost = 'ADD-POST';
+const updateNewPost = 'UPDATE-NEW-POST-TEXT';
+
 let store = {
   _state: {
 
@@ -45,7 +48,7 @@ let store = {
     // this is a pattern for observer
   },
   dispatch(action) {
-  // debugger;
+    // debugger;
     if (action.type === "ADD-POST") {
       let newPost = {
         id: 10,
@@ -63,6 +66,17 @@ let store = {
     }
   },
 }
+
+export const addPostActionCreator = () => ({type: addPost})
+
+// export const updateNewPostText = (text) => {
+//   return {
+//     type: updateNewPost,
+//     newText: text
+//   }
+// }
+// same as:
+export const updateNewPostTextActionCreator = (text) => ({type: updateNewPost, newText: text})
 
 // to display - state - in console and see what is currently logged in
 // window.state = state;

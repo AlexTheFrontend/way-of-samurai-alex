@@ -41,8 +41,10 @@ const App = (props) => {
                     {/*with props.messages I am taking data from the level above*/}
                     <Route path="/dialogs"
                            render={() => <Dialogs
-                               dialogs={props.state.messagesPage.dialogs}
-                               messages={props.state.messagesPage.messages}/>
+                               // dialogs={props.state.messagesPage.dialogs}
+                               // messages={props.state.messagesPage.messages}
+                               store={props.store}
+                           />
                            }/>
                     <Route path="/news" render={() => <News/>}/>
                     <Route path="/music" render={() => <Music/>}/>

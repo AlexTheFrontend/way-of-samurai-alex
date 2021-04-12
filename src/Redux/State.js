@@ -2,6 +2,8 @@
 
 const addPost = 'ADD-POST';
 const updateNewPost = 'UPDATE-NEW-POST-TEXT';
+const updateNewMessageBody = 'UPDATE-NEW-MESSAGE-BODY';
+const sendMessage = 'SEND-MESSAGE';
 
 let store = {
   _state: {
@@ -34,15 +36,19 @@ let store = {
         {id: 7, message: 'Some Russian developer, I think'},
         {id: 8, message: 'I want to hire him now!'},
       ],
+      newMessageBody: '',
     },
     sitebar: {},
   },
+
   getState() {
     return this._state;
   },
+
   _callSubscriber() {
     console.log('State has been changed - Sasha')
   },
+
   subscribe(observer) {
     this._callSubscriber = observer;
     // this is a pattern for observer
@@ -55,13 +61,20 @@ let store = {
         message: this._state.profilePage.newPostText,
         likesCount: 0,
       };
-
       this._state.profilePage.posts.push(newPost);
       // to clear textarea after clicking a button
       this._state.profilePage.newPostText = "";
       this._callSubscriber(this._state);
     } else if (action.type === "UPDATE-NEW-POST-TEXT") {
       this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    } else if (action.type === "UPDATE-NEW-MESSAGE-BODY") {
+      this._state.messagesPage.newMessageBody = action.body;
+      this._callSubscriber(this._state);
+    } else if (action.type === "SEND-MESSAGE"){
+      let body = this._state.messagesPage.newMessageBody;
+      this._state.messagesPage.newMessageBody = '';
+      this._state.messagesPage.messages.push({id: 6, message: body});
       this._callSubscriber(this._state);
     }
   },
@@ -76,7 +89,10 @@ export const addPostActionCreator = () => ({type: addPost})
 //   }
 // }
 // same as:
-export const updateNewPostTextActionCreator = (text) => ({type: updateNewPost, newText: text})
+export const updateNewPostTextActionCreator = (text) => ({type: updateNewPost, newText: text});
+
+export const sendMessageCreator = () => ({type: sendMessage});
+export const updateNewMessageBodyCreator = (body) => ({type: updateNewMessageBody, body: body});
 
 // to display - state - in console and see what is currently logged in
 // window.state = state;

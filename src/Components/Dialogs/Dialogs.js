@@ -1,54 +1,77 @@
 import React from 'react';
 import styles from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../../Redux/State";
 
 const DialogItem = (props) => {
-    const path = "/dialogs/" + props.id;
-    return (
-        <div>
-            <NavLink to={path}>{props.name}</NavLink>
-        </div>
-    )
+  const path = "/dialogs/" + props.id;
+  return (
+      <div>
+        <NavLink to={path}>{props.name}</NavLink>
+      </div>
+  )
 }
 
 const MessageItem = (props) => {
-    return (
-        <div className={styles.message}>{props.message}</div>
-    )
+  return (
+      <div className={styles.message}>{props.message}</div>
+  )
 }
 
 const Dialogs = (props) => {
 
-    // with props.messages I am taking data from the level above
-    let dialogsElement = props.dialogs
-        .map(d => <DialogItem name={d.name} id={d.id}/>);
+  // creating local variable for props
+  let state = props.store.getState().messagesPage;
 
-    // with props.messages I am taking data from the level above
-    let messageElement = props.messages
-        .map(m => <MessageItem message={m.message} id={m.id}/>);
+  // with props.messages I am taking data from the level above
+  let dialogsElement = state.dialogs
+      .map(d => <DialogItem name={d.name} id={d.id}/>);
 
-    let newMessageElement = React.createRef();
+  // with props.messages I am taking data from the level above
+  let messageElement = state.messages
+      .map(m => <MessageItem message={m.message} id={m.id}/>);
 
-    let addMessage = () => {
-        let text = newMessageElement.current.value;
-        alert(text)
-    }
+  let newMessageBody = state.newMessageBody;
 
-    return (
 
-        <div className={styles.d}>
-            <div className={styles.dialogItems}>
-                {dialogsElement}
-            </div>
-            <div className={styles.messages}>
-                {messageElement}
-                <textarea ref={newMessageElement}></textarea>
-                <button onClick={addMessage}>Add message</button>
-            </div>
+  let newMessageElement = React.createRef();
+
+  let addMessage = () => {
+    let text = newMessageElement.current.value;
+    alert(text)
+  }
+
+  let onSendMessageClick = () => {
+    props.store.dispatch(sendMessageCreator())
+  }
+
+  let onNewMessageChange = (e) => {
+   let body = e.target.value;
+   props.store.dispatch(updateNewMessageBodyCreator(body))
+  }
+
+  return (
+
+      <div className={styles.d}>
+        <div className={styles.dialogItems}>
+          {dialogsElement}
         </div>
+        <div className={styles.messages}>
+          <div>{messageElement}</div>
+          <textarea
+              value={newMessageBody}
+              onChange={onNewMessageChange}
+              placeholder={'Type your message here'}
+              ref={newMessageElement}
+          />
+          <div>
+            <button onClick={onSendMessageClick}>Add message</button>
+          </div>
+        </div>
+      </div>
 
 
-    )
+  )
 }
 
 export default Dialogs;

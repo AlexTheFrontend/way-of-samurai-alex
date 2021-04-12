@@ -1,9 +1,8 @@
 // Creating an object with massive of data
 
-const addPost = 'ADD-POST';
-const updateNewPost = 'UPDATE-NEW-POST-TEXT';
-const updateNewMessageBody = 'UPDATE-NEW-MESSAGE-BODY';
-const sendMessage = 'SEND-MESSAGE';
+import profileReducer from "./profileReducer";
+import dialogReducer from "./dialogsReducer";
+import sidebarReducer from "./sidebarReducer";
 
 let store = {
   _state: {
@@ -38,7 +37,7 @@ let store = {
       ],
       newMessageBody: '',
     },
-    sitebar: {},
+    sidebar: {},
   },
 
   getState() {
@@ -53,34 +52,44 @@ let store = {
     this._callSubscriber = observer;
     // this is a pattern for observer
   },
+
+  // logic with Reducers
   dispatch(action) {
     // debugger;
-    if (action.type === "ADD-POST") {
-      let newPost = {
-        id: 10,
-        message: this._state.profilePage.newPostText,
-        likesCount: 0,
-      };
-      this._state.profilePage.posts.push(newPost);
-      // to clear textarea after clicking a button
-      this._state.profilePage.newPostText = "";
-      this._callSubscriber(this._state);
-    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    } else if (action.type === "UPDATE-NEW-MESSAGE-BODY") {
-      this._state.messagesPage.newMessageBody = action.body;
-      this._callSubscriber(this._state);
-    } else if (action.type === "SEND-MESSAGE"){
-      let body = this._state.messagesPage.newMessageBody;
-      this._state.messagesPage.newMessageBody = '';
-      this._state.messagesPage.messages.push({id: 6, message: body});
-      this._callSubscriber(this._state);
-    }
+    // Code with Reducers
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.messagesPage = dialogReducer(this._state.messagesPage, action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+    this._callSubscriber(this._state);
   },
+
+    // Code before the Reducers
+  //   if (action.type === "ADD-POST") {
+  //     let newPost = {
+  //       id: 10,
+  //       message: this._state.profilePage.newPostText,
+  //       likesCount: 0,
+  //     };
+  //     this._state.profilePage.posts.push(newPost);
+  //     // to clear textarea after clicking a button
+  //     this._state.profilePage.newPostText = "";
+  //     this._callSubscriber(this._state);
+  //   } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+  //     this._state.profilePage.newPostText = action.newText;
+  //     this._callSubscriber(this._state);
+  //   } else if (action.type === "UPDATE-NEW-MESSAGE-BODY") {
+  //     this._state.messagesPage.newMessageBody = action.body;
+  //     this._callSubscriber(this._state);
+  //   } else if (action.type === "SEND-MESSAGE"){
+  //     let body = this._state.messagesPage.newMessageBody;
+  //     this._state.messagesPage.newMessageBody = '';
+  //     this._state.messagesPage.messages.push({id: 6, message: body});
+  //     this._callSubscriber(this._state);
+  //   }
+  // },
+
 }
 
-export const addPostActionCreator = () => ({type: addPost})
 
 // export const updateNewPostText = (text) => {
 //   return {
@@ -89,10 +98,6 @@ export const addPostActionCreator = () => ({type: addPost})
 //   }
 // }
 // same as:
-export const updateNewPostTextActionCreator = (text) => ({type: updateNewPost, newText: text});
-
-export const sendMessageCreator = () => ({type: sendMessage});
-export const updateNewMessageBodyCreator = (body) => ({type: updateNewMessageBody, body: body});
 
 // to display - state - in console and see what is currently logged in
 // window.state = state;

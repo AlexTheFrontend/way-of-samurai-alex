@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import store from "./Redux/State";
+import store from "./Redux/Store";
 
 // extra function to avoid cycle dependency
 

@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Posts/Post';
 import styles from "../../Dialogs/Dialogs.module.css";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../Redux/State";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../Redux/profileReducer";
+
 // import {addPost} from "../../../Redux/State";
 
 const MyPosts = (props) => {

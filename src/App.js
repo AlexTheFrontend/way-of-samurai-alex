@@ -15,7 +15,7 @@ import Friends from "./Components/Friends/Friends";
 
 
 const App = (props) => {
-
+// debugger;
     return (
         <BrowserRouter>
             <div className='appWrapper'>

@@ -1,4 +1,5 @@
 // Creating an object with massive of data
+// Creating Redux idea from scratch - this file is for information now
 
 import profileReducer from "./profileReducer";
 import dialogReducer from "./dialogsReducer";
@@ -53,7 +54,6 @@ let store = {
     // this is a pattern for observer
   },
 
-  // logic with Reducers
   dispatch(action) {
     // debugger;
     // Code with Reducers
@@ -62,6 +62,12 @@ let store = {
     this._state.sidebar = sidebarReducer(this._state.sidebar, action);
     this._callSubscriber(this._state);
   },
+
+}
+
+  // export default store;
+  window.state = store;
+// store is OOP
 
     // Code before the Reducers
   //   if (action.type === "ADD-POST") {
@@ -88,8 +94,6 @@ let store = {
   //   }
   // },
 
-}
-
 
 // export const updateNewPostText = (text) => {
 //   return {
@@ -102,6 +106,3 @@ let store = {
 // to display - state - in console and see what is currently logged in
 // window.state = state;
 
-export default store;
-window.state = store;
-// store is OOP

@@ -3,7 +3,6 @@ import styles from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../Redux/dialogsReducer";
 
-
 const DialogItem = (props) => {
   const path = "/dialogs/" + props.id;
   return (
@@ -12,7 +11,6 @@ const DialogItem = (props) => {
       </div>
   )
 }
-
 const MessageItem = (props) => {
   return (
       <div className={styles.message}>{props.message}</div>
@@ -36,11 +34,6 @@ const Dialogs = (props) => {
 
 
   let newMessageElement = React.createRef();
-
-  let addMessage = () => {
-    let text = newMessageElement.current.value;
-    alert(text)
-  }
 
   let onSendMessageClick = () => {
     props.store.dispatch(sendMessageCreator())
@@ -70,8 +63,6 @@ const Dialogs = (props) => {
           </div>
         </div>
       </div>
-
-
   )
 }
 

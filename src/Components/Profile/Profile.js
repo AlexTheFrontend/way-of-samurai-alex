@@ -12,7 +12,7 @@ const Profile = (props) => {
         <ProfileInfo/>
         {/*we send path through props from MyPosts */}
         {/*we take a data from profilePage (state) array*/}
-        <MyPostsContainer store={props.store} />
+        <MyPostsContainer />
       </div>
   );
 }

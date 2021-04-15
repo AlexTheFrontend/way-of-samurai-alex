@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import store from "./Redux/reduxStore";
+import StoreContext from "./StoreContext";
 
 // extra function to avoid cycle dependency
 
@@ -11,11 +12,9 @@ let rerenderEntireTree = (state) => {
   // debugger;
   ReactDOM.render(
       <React.StrictMode>
-        <App
-            state={state}
-            dispatch={store.dispatch.bind(store)}
-            store={store}
-        />
+        <StoreContext.Provider value={store}>
+          <App />
+        </StoreContext.Provider>
       </React.StrictMode>,
       document.getElementById('root')
   );

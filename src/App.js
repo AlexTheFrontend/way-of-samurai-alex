@@ -11,8 +11,8 @@ import Friends from "./Components/Friends/Friends";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 // import { useRouter } from 'next/router';
 // import Link from 'next/link';
-import NumericInput from "./Components/NumericField/NumericField";
-import Dialogs from "./Components/Dialogs/Dialogs";
+// import NumericInput from "./Components/NumericField/NumericField";
+// import Dialogs from "./Components/Dialogs/Dialogs";
 
 
 const App = (props) => {
@@ -27,14 +27,14 @@ const App = (props) => {
           <div className="appWrapperContent">
 
             <Route path="/profile" render={() => <Profile
-                store={props.store}
+                // store={props.store}
             />}
             />
             {/*the way to do it if defining on top*/}
             {/*with props.messages I am taking data from the level above*/}
             <Route path="/dialogs"
-                   render={() => <Dialogs
-                       store={props.store}
+                   render={() => <DialogsContainer
+                       // store={props.store}
                    />
                    }/>
             <Route path="/news" render={() => <News/>}/>

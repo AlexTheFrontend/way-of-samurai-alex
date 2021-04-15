@@ -1,49 +1,46 @@
 import React from 'react';
 import styles from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../Redux/dialogsReducer";
 import DialogsItem from "./DialogsItem/DialogsItem";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
 
   // creating local variable for props
-  let state = props.store.getState().messagesPage;
+  let state = props.dialogPage;
 
   // with props.messages I am taking data from the level above
-  let dialogsElement = state.dialogs
+  let dialogsElements = state.dialogs
       .map(d => <DialogsItem name={d.name} id={d.id}/>);
 
   // with props.messages I am taking data from the level above
-  let messageElement = state.messages
+  let messageElements = state.messages
       .map(m => <Message message={m.message} id={m.id}/>);
 
   let newMessageBody = state.newMessageBody;
-
-  let newMessageElement = React.createRef();
+  //
+  // let newMessageElement = React.createRef();
 
   let onSendMessageClick = () => {
-    props.store.dispatch(sendMessageCreator())
+    props.sendMessage();
   }
 
   let onNewMessageChange = (e) => {
    let body = e.target.value;
-   props.store.dispatch(updateNewMessageBodyCreator(body))
+   props.updateNewMessageBody(body);
   }
 
   return (
 
       <div className={styles.d}>
         <div className={styles.dialogItems}>
-          {dialogsElement}
+          {dialogsElements}
         </div>
         <div className={styles.messages}>
-          <div>{messageElement}</div>
+          <div>{messageElements}</div>
           <textarea
               value={newMessageBody}
               onChange={onNewMessageChange}
               placeholder={'Type your message here'}
-              ref={newMessageElement}
           />
           <div>
             <button onClick={onSendMessageClick}>Add message</button>

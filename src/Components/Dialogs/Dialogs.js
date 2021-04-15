@@ -2,20 +2,8 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../Redux/dialogsReducer";
-
-const DialogItem = (props) => {
-  const path = "/dialogs/" + props.id;
-  return (
-      <div>
-        <NavLink to={path}>{props.name}</NavLink>
-      </div>
-  )
-}
-const MessageItem = (props) => {
-  return (
-      <div className={styles.message}>{props.message}</div>
-  )
-}
+import DialogsItem from "./DialogsItem/DialogsItem";
+import Message from "./Message/Message";
 
 const Dialogs = (props) => {
 
@@ -24,14 +12,13 @@ const Dialogs = (props) => {
 
   // with props.messages I am taking data from the level above
   let dialogsElement = state.dialogs
-      .map(d => <DialogItem name={d.name} id={d.id}/>);
+      .map(d => <DialogsItem name={d.name} id={d.id}/>);
 
   // with props.messages I am taking data from the level above
   let messageElement = state.messages
-      .map(m => <MessageItem message={m.message} id={m.id}/>);
+      .map(m => <Message message={m.message} id={m.id}/>);
 
   let newMessageBody = state.newMessageBody;
-
 
   let newMessageElement = React.createRef();
 
@@ -63,6 +50,8 @@ const Dialogs = (props) => {
           </div>
         </div>
       </div>
+
+
   )
 }
 

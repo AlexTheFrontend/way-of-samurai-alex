@@ -8,7 +8,7 @@ import {Provider} from "./StoreContext";
 
 // extra function to avoid cycle dependency
 
-let rerenderEntireTree = (state) => {
+let rerenderEntireTree = () => {
   // debugger;
   ReactDOM.render(
       <React.StrictMode>
@@ -21,11 +21,10 @@ let rerenderEntireTree = (state) => {
   );
 };
 
-rerenderEntireTree(store.getState());
+rerenderEntireTree();
 
 store.subscribe(() => {
-  let state = store.getState();
-  rerenderEntireTree(state);
+  rerenderEntireTree();
 });
 
 // If you want to start measuring performance in your app, pass a function

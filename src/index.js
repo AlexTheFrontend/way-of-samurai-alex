@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import store from "./Redux/reduxStore";
-import {Provider} from "./StoreContext";
+import {Provider} from "react-redux";
+
 
 // extra function to avoid cycle dependency
 

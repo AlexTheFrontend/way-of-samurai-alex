@@ -4,12 +4,11 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
-const Profile = (props) => {
-
+const Profile = () => {
 
   return (
       <div className={classes.content}>
-        <ProfileInfo/>
+        <ProfileInfo />
         {/*we send path through props from MyPosts */}
         {/*we take a data from profilePage (state) array*/}
         <MyPostsContainer />

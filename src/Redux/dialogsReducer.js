@@ -27,14 +27,20 @@ const dialogReducer = (state = initialState, action) => {
   // debugger;
   // Switch instead of if/else if expression
   switch (action.type) {
-    case updateNewMessageBody:
-      state.newMessageBody = action.body;
-      return state;
-    case sendMessage:
-      let body = state.newMessageBody;
-      state.newMessageBody = '';
-      state.messages.push({id: 6, message: body});
-      return state;
+    case updateNewMessageBody: {
+      let stateCopy = {...state}
+      stateCopy.newMessageBody = action.body;
+      return stateCopy;
+    }
+
+    case sendMessage: {
+      let stateCopy = {...state}
+      let body = stateCopy.newMessageBody;
+      stateCopy.newMessageBody = '';
+      stateCopy.messages.push({id: 6, message: body});
+      return stateCopy;
+    }
+
     default:
       return state;
   }

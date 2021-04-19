@@ -15,19 +15,27 @@ const profileReducer = (state = initialState, action) => {
 
   // debugger;
   switch (action.type) {
-    case addPost:
+
+    case addPost: {
       let newPost = {
         id: 10,
         message: state.newPostText,
         likesCount: 0,
       };
-      state.posts.push(newPost);
+      let stateCopy = {...state}
+      stateCopy.posts = [...state.posts]
+      stateCopy.posts.push(newPost)
       // to clear textarea after clicking a button
-      state.newPostText = "";
-      return state;
-    case updateNewPost:
-      state.newPostText = action.newText;
-      return state;
+      stateCopy.newPostText = "";
+      return stateCopy;
+    }
+    // Creating state copies to change and work with, we can't change the parent object
+    case updateNewPost: {
+      let stateCopy = {...state}
+      stateCopy.newPostText = action.newText;
+      return stateCopy;
+    }
+
     default:
       return state;
   }

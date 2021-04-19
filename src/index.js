@@ -9,7 +9,7 @@ import {Provider} from "react-redux";
 
 // extra function to avoid cycle dependency
 
-let rerenderEntireTree = () => {
+// let rerenderEntireTree = () => {
   // debugger;
   ReactDOM.render(
       <React.StrictMode>
@@ -20,13 +20,13 @@ let rerenderEntireTree = () => {
       </React.StrictMode>,
       document.getElementById('root')
   );
-};
-
-rerenderEntireTree();
-
-store.subscribe(() => {
-  rerenderEntireTree();
-});
+// };
+//
+// rerenderEntireTree();
+//
+// store.subscribe(() => {
+//   rerenderEntireTree();
+// });
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

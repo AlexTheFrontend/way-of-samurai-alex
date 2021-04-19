@@ -6,7 +6,7 @@ import Message from "./Message/Message";
 const Dialogs = (props) => {
 
   // creating local variable for props
-  let state = props.dialogPage;
+  let state = props.messagesPage;
 
   // with props.messages I am taking data from the level above
   let dialogsElements = state.dialogs

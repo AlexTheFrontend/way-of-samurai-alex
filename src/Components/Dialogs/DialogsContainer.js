@@ -25,7 +25,7 @@ import {connect} from "react-redux";
 //               <Dialogs
 //                   updateNewMessageBody={onNewMessageChange}
 //                   sendMessage={onSendMessageClick}
-//                   dialogPage={state}
+//                   dialogsPage={state}
 //               />);
 //         }
 //       }
@@ -34,22 +34,25 @@ import {connect} from "react-redux";
 //   );
 // }
 
-const mapStateToProps = (state) => {
+let mapStateToProps = (state) => {
   return {
     // Data from state (which is Store before)
-    dialogPage: state.dialogPage,
+    messagesPage: state.messagesPage,
   };
 }
 
-const mapDispatchToProps = (dispatch) => {
+
+
+let mapDispatchToProps = (dispatch) => {
   return {
   //  callback F
-    updateNewMessageBody: (body) => dispatch(updateNewMessageBodyCreator(body)),
     sendMessage: () => dispatch(sendMessageCreator()),
+    updateNewMessageBody: (body) => dispatch(updateNewMessageBodyCreator(body)),
   };
 }
 
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+
 
 export default DialogsContainer;
 

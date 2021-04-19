@@ -26,17 +26,12 @@ const App = (props) => {
           {/*For routing purposes*/}
           <div className="appWrapperContent">
 
-            <Route path="/profile" render={() => <Profile
-                // store={props.store}
-            />}
+            <Route path="/profile" render={() => <Profile/>}
             />
             {/*the way to do it if defining on top*/}
             {/*with props.messages I am taking data from the level above*/}
-            <Route path="/dialogs"
-                   render={() => <DialogsContainer
-                       // store={props.store}
-                   />
-                   }/>
+            <Route path="/dialogs" render={() => <DialogsContainer/>}/>
+            {/* To be used later on */}
             <Route path="/news" render={() => <News/>}/>
             <Route path="/music" render={() => <Music/>}/>
             <Route path="/settings" render={() => <Settings/>}/>

@@ -28,7 +28,7 @@ const profileReducer = (state = initialState, action) => {
         newPostText: ''
       }
     }
-    // Creating state copies to change and work with, we can't change the parent object
+      // Creating state copies to change and work with, we can't change the parent object
     case updateNewPost: {
       return {
         ...state,

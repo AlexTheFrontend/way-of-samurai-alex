@@ -3,40 +3,7 @@ const unfollow = 'UNFOLLOW-USER';
 const setUsers = 'SET-USERS'
 
 let initialState = {
-  listOfUsers: [
-    {
-      id: 1,
-      photoUrl: 'https://images.immediate.co.uk/production/volatile/sites/7/2020/07/Alexander-the-Great-2-e2a4ed7.jpg?quality=90&resize=620,413',
-      followed: false,
-      fullName: 'Alex',
-      status: 'Developer',
-      location: {city: 'Auckland', country: 'New Zealand'}
-    },
-    {
-      id: 2,
-      photoUrl: 'https://images.immediate.co.uk/production/volatile/sites/7/2020/07/Alexander-the-Great-2-e2a4ed7.jpg?quality=90&resize=620,413',
-      followed: true,
-      fullName: 'Vasya',
-      status: 'Supply Chain',
-      location: {city: 'Moscow', country: 'Russia'}
-    },
-    {
-      id: 3,
-      photoUrl: 'https://images.immediate.co.uk/production/volatile/sites/7/2020/07/Alexander-the-Great-2-e2a4ed7.jpg?quality=90&resize=620,413',
-      followed: false,
-      fullName: 'Andy',
-      status: 'Sales',
-      location: {city: 'Yourk New', country: 'USA'}
-    },
-    {
-      id: 4,
-      photoUrl: 'https://images.immediate.co.uk/production/volatile/sites/7/2020/07/Alexander-the-Great-2-e2a4ed7.jpg?quality=90&resize=620,413',
-      followed: true,
-      fullName: 'Henry',
-      status: 'Head-Developer',
-      location: {city: 'Vancouver', country: 'Canada'}
-    },
-  ],
+  users: [ ],
 };
 
 const usersReducer = (state = initialState, action) => {

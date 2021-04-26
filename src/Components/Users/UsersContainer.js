@@ -6,7 +6,7 @@ import {followAC, setUsersAC, unfollowAC} from "../../Redux/usersReducer";
 let mapStateToProps = (state) => {
   return {
     // getting state from users page as a container component
-    listOfUsers: state.usersPage.listOfUsers
+    users: state.usersPage.users
   };
 }
 

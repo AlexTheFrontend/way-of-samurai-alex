@@ -1,47 +1,19 @@
 import React from "react";
 import styles from './users.module.css'
+import * as axios from "axios";
+import Avatar from "../../Pictures/Avatar.jpeg"
 
 // Check what you are getting in props, always!!!
 let Users = (props) => {
   // console.log("Props Check", props)
 
   if (props.users.length === 0) {
-    props.setUsers(
-        [
-          {
-            id: 1,
-            photoUrl: 'https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/8D1846B097E4295A4DFE62AA834A62A6EB36F4D54EB451AB0F867FCA2BB30709/scale?width=1200&aspectRatio=1.78&format=jpeg',
-            followed: false,
-            fullName: 'Alex',
-            status: 'Developer',
-            location: {city: 'Auckland', country: 'New Zealand'}
-          },
-          {
-            id: 2,
-            photoUrl: 'https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/8D1846B097E4295A4DFE62AA834A62A6EB36F4D54EB451AB0F867FCA2BB30709/scale?width=1200&aspectRatio=1.78&format=jpeg',
-            followed: true,
-            fullName: 'Vasya',
-            status: 'Supply Chain',
-            location: {city: 'Moscow', country: 'Russia'}
-          },
-          {
-            id: 3,
-            photoUrl: 'https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/8D1846B097E4295A4DFE62AA834A62A6EB36F4D54EB451AB0F867FCA2BB30709/scale?width=1200&aspectRatio=1.78&format=jpeg',
-            followed: false,
-            fullName: 'Andy',
-            status: 'Sales',
-            location: {city: 'Yourk New', country: 'USA'}
-          },
-          {
-            id: 4,
-            photoUrl: 'https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/8D1846B097E4295A4DFE62AA834A62A6EB36F4D54EB451AB0F867FCA2BB30709/scale?width=1200&aspectRatio=1.78&format=jpeg',
-            followed: true,
-            fullName: 'Henry',
-            status: 'Head-Developer',
-            location: {city: 'Vancouver', country: 'Canada'}
-          },
-        ],
-    )
+
+    axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+      // as per provided API
+      props.setUsers(response.data.items)
+    })
+
   }
 
   return (
@@ -51,7 +23,8 @@ let Users = (props) => {
                 <div key={u.id}>
       <span>
         <div>
-          <img src={u.photoUrl} className={styles.userPhoto}/>
+          <img src={u.photos.small != null ? u.photos.small : Avatar}
+               className={styles.userPhoto}/>
         </div>
         <div>
           {u.followed
@@ -66,12 +39,13 @@ let Users = (props) => {
       </span>
                   <span>
           <span>
-            <div>{u.fullName}</div>
+            <div>{u.name}</div>
             <div>{u.status}</div>
           </span>
           <span>
-            <div>{u.location.country}</div>
-            <div>{u.location.city}</div>
+            {/*for future use*/}
+            <div>{"u?.location?.country"}</div>
+            <div>{"u?.location?.city"}</div>
           </span>
         </span>
                 </div>

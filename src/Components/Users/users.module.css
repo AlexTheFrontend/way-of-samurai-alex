@@ -1,11 +1,11 @@
-.container {
-
-}
-
 .userPhoto {
   width: 100px;
   height: auto;
   border-radius: 25px;
+}
+
+.selectedPage {
+  font-weight: bold;
 }
 
 

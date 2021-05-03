@@ -16,13 +16,3 @@
 .usersContainer {
     margin: 0px 10px;
 }
-
-/*loader styling*/
-.scater {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-40%) translateX(800%);
-    text-align: center;
-}
-
-

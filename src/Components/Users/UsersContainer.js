@@ -10,9 +10,7 @@ import {
 } from "../../Redux/usersReducer";
 import * as axios from "axios";
 import Users from "./Users";
-//change the colour!
-import rings from "../../Pictures/rings.gif"
-import styles from "./users.module.css";
+import Preloader from "../Common/Preloader/Preloader";
 
 class UsersContainer extends React.Component {
 
@@ -41,7 +39,7 @@ class UsersContainer extends React.Component {
   render() {
     // <> in this case is zaglushka
     return <>
-      {this.props.isFetching ? <img className={styles.scater} src={rings} /> : null}
+      {this.props.isFetching ? <Preloader /> : null}
       <Users totalUsersCount={this.props.totalUsersCount}
              pageSize={this.props.pageSize}
              currentPage={this.props.currentPage}

@@ -22,6 +22,15 @@ let Users = (props) => {
 
   return <div className={styles.usersContainer}>
 
+    <div className={styles.pagesScroll}>
+      {pages.map(p => {
+        // console.log("Alex",props.onPageChange)
+        return <span className={props.currentPage === p && styles.selectedPage}
+                     onClick={(e) => {
+                       props.onPageChange(p)
+                     }}>{p}</span>
+      })}
+    </div>
     {
 
       props.users.map(u =>
@@ -57,15 +66,7 @@ let Users = (props) => {
       )
     }
 
-    <div className={styles.pagesScroll}>
-      {pages.map(p => {
-        // console.log("Alex",props.onPageChange)
-        return <span className={props.currentPage === p && styles.selectedPage}
-                     onClick={(e) => {
-                       props.onPageChange(p)
-                     }}>{p}</span>
-      })}
-    </div>
+
   </div>
 }
 

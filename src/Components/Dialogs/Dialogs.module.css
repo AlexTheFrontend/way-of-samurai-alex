@@ -1,0 +1,30 @@
+.d {
+    background: deepskyblue;
+    /*height: 10rem;*/
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+}
+
+.dialog {
+
+}
+
+.appWrapper {
+    color: red;
+}
+
+.dialogItems {
+
+}
+
+.dialogItems .active {
+    color: gold;
+}
+
+.messages {
+    color: white;
+}
+
+.message {
+
+}

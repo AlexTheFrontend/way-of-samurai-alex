@@ -1,6 +1,6 @@
 .header {
     grid-area: h;
-    background-color: aquamarine;
+    background: linear-gradient(#42f5ec, #09eb6b);
     
   }
   

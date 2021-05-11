@@ -1,8 +1,36 @@
-.nav {
-    grid-area: n;
-    background-color: cornsilk;
-  }
+.container {
+  grid-area: n;
+  background: linear-gradient(to bottom, #131414 30%, #ebfa66);
+  min-height: 80vh;
+  padding-top: 10px;
+  font-family: Roboto;
+  font-size: 1.3rem;
+}
 
-  .item {
-      color: red;
-  }
+.item a {
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.item a:hover {
+  font-weight: bold;
+  transition-duration: 0.1s;
+  color: goldenrod;
+}
+
+.item a.active {
+  color: gold;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.friends a {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.friends {
+  margin-top: 20px;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
-import Profile from "./Components/Profile/Profile";
+import ProfileContainer from "./Components/Profile/ProfileContainer";
 import {BrowserRouter, Route} from "react-router-dom";
 import Music from "./Components/NewsMusicSettings/Music";
 import News from "./Components/NewsMusicSettings/News";
@@ -27,9 +27,8 @@ const App = (props) => {
 
           {/*For routing purposes*/}
           <div className="appWrapperContent">
-
-            <Route path="/profile" render={() => <Profile/>}
-            />
+            {/*adding an optional URL parameter*/}
+            <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
             {/*the way to do it if defining on top*/}
             {/*with props.messages I am taking data from the level above*/}
             <Route path="/dialogs" render={() => <DialogsContainer/>}/>

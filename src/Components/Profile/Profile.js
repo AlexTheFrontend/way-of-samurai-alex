@@ -4,16 +4,14 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
-const Profile = () => {
+const Profile = (props) => {
 
-  return (
-      <div className={classes.content}>
-        <ProfileInfo />
-        {/*we send path through props from MyPosts */}
-        {/*we take a data from profilePage (state) array*/}
-        <MyPostsContainer />
-      </div>
-  );
+    return (
+        <div className={classes.content}>
+            <ProfileInfo profile={props.profile}/>
+            <MyPostsContainer/>
+        </div>
+    );
 }
 
 export default Profile;

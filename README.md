@@ -1,3 +1,5 @@
+# Backend works on localhost:3000 at this stage, will be fixed in the future.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

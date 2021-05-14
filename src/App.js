@@ -27,9 +27,8 @@ const App = (props) => {
 
           {/*For routing purposes*/}
           <div className="appWrapperContent">
-
-            <Route path="/profile" render={() => <ProfileContainer/>}
-            />
+            {/*adding an optional URL parameter*/}
+            <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
             {/*the way to do it if defining on top*/}
             {/*with props.messages I am taking data from the level above*/}
             <Route path="/dialogs" render={() => <DialogsContainer/>}/>

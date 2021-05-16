@@ -1,6 +1,5 @@
 import React from 'react'
 import './App.css'
-import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import {BrowserRouter, Route} from "react-router-dom";
@@ -10,6 +9,7 @@ import Settings from "./Components/NewsMusicSettings/Settings";
 import Friends from "./Components/Friends/Friends";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
+import HeaderContainer from "./Components/Header/HeaderContainer";
 
 // import { useRouter } from 'next/router';
 // import Link from 'next/link';
@@ -22,7 +22,7 @@ const App = (props) => {
   return (
       <BrowserRouter>
         <div className='appWrapper'>
-          <Header/>
+          <HeaderContainer/>
           <Navbar/>
 
           {/*For routing purposes*/}

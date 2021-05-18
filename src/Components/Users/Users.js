@@ -2,11 +2,8 @@ import React from 'react';
 import styles from "./users.module.css";
 import Avatar from "../../Pictures/Avatar.jpeg";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
-import {usersAPI} from "../../api/Api";
 
 let Users = (props) => {
-
 
     //to round up a number
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);

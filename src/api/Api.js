@@ -2,6 +2,7 @@ import * as axios from "axios";
 
 // const baseUrl = 'https://social-network.samuraijs.com/api/1.0/'
 
+// *** DAL (data access layer) ***
 //local axios
 const instance = axios.create({
     withCredentials: true,
@@ -19,6 +20,12 @@ export const usersAPI = {
             .then(response => {
                 return response.data;
             })
+    },
+    follow(userId){
+        return instance.post(`follow/${userId}`)
+    },
+    unfollow(userId){
+        return instance.delete(`follow/${userId}`)
     }
 }
 

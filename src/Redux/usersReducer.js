@@ -12,7 +12,7 @@ let initialState = {
   totalUsersCount: 0,
   currentPage: 1,
   isFetching: true,
-  followingInProgress: false,
+  followingInProgress: [],
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -66,7 +66,10 @@ const usersReducer = (state = initialState, action) => {
       case toggleIsFollowingProgressCase:
       return {
         ...state,
+        // to have only ony request per click
         followingInProgress: action.isFetching
+            ? [...state.followingInProgress, action.userId]
+            : state.followingInProgress.filter(id => id != action.userId)
       }
     default:
       return state;
@@ -80,6 +83,6 @@ export const setUsers = (users) => ({type: setUsersCase, users});
 export const setCurrentPage = (currentPage) => ({type: setCurrentPageCase, currentPage});
 export const setTotalUsersCount = (totalUsersCount) => ({type: setTotalUsersCountCase, count: totalUsersCount});
 export const toggleIsFetching = (isFetching) => ({type: toggleIsFetchingCase, isFetching})
-export const toggleIsFollowingProgress = (isFetching) => ({type: toggleIsFollowingProgressCase, isFetching})
+export const toggleFollowingProgress = (isFetching, userId) => ({type: toggleIsFollowingProgressCase, isFetching, userId})
 
 export default usersReducer;

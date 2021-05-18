@@ -4,13 +4,15 @@ const setUsersCase = 'SET-USERS';
 const setCurrentPageCase = 'SET-CURRENT-PAGE';
 const setTotalUsersCountCase = 'SET-TOTAL-USERS-COUNT';
 const toggleIsFetchingCase = 'TOGGLE-IS-FETCHING';
+const toggleIsFollowingProgressCase = 'TOGGLE-IS-FOLLOWING-PROGRESS';
 
 let initialState = {
   users: [ ],
   pageSize: 5,
   totalUsersCount: 0,
   currentPage: 1,
-  isFetching: false,
+  isFetching: true,
+  followingInProgress: false,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -61,6 +63,11 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         isFetching: action.isFetching
       }
+      case toggleIsFollowingProgressCase:
+      return {
+        ...state,
+        followingInProgress: action.isFetching
+      }
     default:
       return state;
   }
@@ -73,5 +80,6 @@ export const setUsers = (users) => ({type: setUsersCase, users});
 export const setCurrentPage = (currentPage) => ({type: setCurrentPageCase, currentPage});
 export const setTotalUsersCount = (totalUsersCount) => ({type: setTotalUsersCountCase, count: totalUsersCount});
 export const toggleIsFetching = (isFetching) => ({type: toggleIsFetchingCase, isFetching})
+export const toggleIsFollowingProgress = (isFetching) => ({type: toggleIsFollowingProgressCase, isFetching})
 
 export default usersReducer;

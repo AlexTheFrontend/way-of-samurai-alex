@@ -46,33 +46,37 @@ let Users = (props) => {
         </div>
         <div>
           {u.followed
-              ? <button onClick={() => {
+              ? <button disabled={props.followingInProgress} onClick={() => {
+                  // debugger;
+                  props.toggleIsFollowingProgress(true);
                   //query to the server first
                   axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                      withCredentials: true,
                       headers: {
-                          "API-KEY": "84b57618-1dd3-41e1-947e-9dd6fc7958d9"
-                      }
+                          "API-KEY": "0c6cbca3-7592-4cde-9f82-cd833654a00f"
+                      },
+                      withCredentials: true,
                   })
                       .then(response => {
-                          if (response.data.resultCode === 0) {
+                          if (response.data.resultCode == 0) {
                               props.unfollow(u.id);
                           }
+                          props.toggleIsFollowingProgress(false);
                       });
               }}>Unfollow</button>
 
-              : <button onClick={() => {
-
+              : <button disabled={props.followingInProgress} onClick={() => {
+                  props.toggleIsFollowingProgress(true);
                   axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
                       withCredentials: true,
                       headers: {
-                          "API-KEY": "84b57618-1dd3-41e1-947e-9dd6fc7958d9"
+                          "API-KEY": "0c6cbca3-7592-4cde-9f82-cd833654a00f"
                       }
                   })
                       .then(response => {
-                          if (response.data.resultCode === 0) {
+                          if (response.data.resultCode == 0) {
                               props.follow(u.id);
                           }
+                          props.toggleIsFollowingProgress(false);
                       });
 
 

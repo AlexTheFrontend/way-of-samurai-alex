@@ -5,9 +5,9 @@ import * as axios from "axios";
 //local axios
 const instance = axios.create({
     withCredentials: true,
-    baseUrl: 'https://social-network.samuraijs.com/api/1.0/',
+    baseURL: '',
     headers: {
-        "API-KEY": "84b57618-1dd3-41e1-947e-9dd6fc7958d9"
+        "API-KEY": "0c6cbca3-7592-4cde-9f82-cd833654a00f"
     }
 });
 
@@ -15,7 +15,7 @@ const instance = axios.create({
 
 export const usersAPI = {
     getUsers(currentPage = 1, pageSize = 10) {
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`)
+        return instance.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
             .then(response => {
                 return response.data;
             })

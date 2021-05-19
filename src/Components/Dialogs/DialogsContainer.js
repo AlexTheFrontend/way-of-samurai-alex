@@ -3,25 +3,34 @@ import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import React from "react";
 import {withAuthRedirect} from "../../HOC/withAuthRedirect";
+import {compose} from "redux";
 
 let mapStateToProps = (state) => {
-  return {
-    // Data from state (which is Store before)
-    messagesPage: state.messagesPage,
-  };
+    return {
+        // Data from state (which is Store before)
+        messagesPage: state.messagesPage,
+    };
 }
 
 let mapDispatchToProps = (dispatch) => {
-  return {
-  //  callback F
-    sendMessage: () => dispatch(sendMessageCreator()),
-    updateNewMessageBody: (body) => dispatch(updateNewMessageBodyCreator(body)),
-  };
+    return {
+        //  callback F
+        sendMessage: () => dispatch(sendMessageCreator()),
+        updateNewMessageBody: (body) => dispatch(updateNewMessageBodyCreator(body)),
+    };
 }
 
-let AuthRedirectComponent = withAuthRedirect(Dialogs);
+// compose(
+//     connect(mapStateToProps, mapDispatchToProps),
+//     withAuthRedirect
+// )(Dialogs)
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
+// let AuthRedirectComponent = withAuthRedirect(Dialogs);
+//
+// const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
 
-export default DialogsContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(Dialogs);
 

@@ -10,12 +10,9 @@ import Friends from "./Components/Friends/Friends";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
+import LoginPage from "./Login/Login";
 
-// import { useRouter } from 'next/router';
-// import Link from 'next/link';
 // import NumericInput from "./Components/NumericField/NumericField";
-// import Dialogs from "./Components/Dialogs/Dialogs";
-
 
 const App = (props) => {
 // debugger;
@@ -33,6 +30,7 @@ const App = (props) => {
             {/*with props.messages I am taking data from the level above*/}
             <Route path="/dialogs" render={() => <DialogsContainer/>}/>
             <Route path="/users" render={() => <UsersContainer />}/>
+            <Route path="/login" render={() => <LoginPage />}/>
 
             {/* To be used later on */}
             <Route path="/news" render={() => <News/>}/>

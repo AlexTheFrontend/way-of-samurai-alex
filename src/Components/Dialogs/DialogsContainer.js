@@ -37,6 +37,7 @@ let mapStateToProps = (state) => {
   return {
     // Data from state (which is Store before)
     messagesPage: state.messagesPage,
+    isAuth: state.auth.isAuth,
   };
 }
 

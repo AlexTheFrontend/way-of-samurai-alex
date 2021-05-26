@@ -1,20 +1,25 @@
 import React from 'react';
-import s from './ProfileInfo.module.css';
+// import classes from './ProfileInfo.module.css';
+// import Preloader from "../../Common/Preloader/Preloader";
 
 class ProfileStatus extends React.Component {
+
     state = {
-        editMode: false,
-        status: this.props.status
+        editState: false,
+        status: this.props.status,
     }
 
-    activateEditMode = () => {
+    // method
+    // setState is async
+    activateEditState = () => {
         this.setState({
-            editMode: true
-        });
+            editState: true,
+        })
     }
-    deactivateEditMode = () => {
+
+    deactivateEditState = () => {
         this.setState({
-            editMode: false
+            editState: false,
         });
         this.props.updateStatus(this.state.status);
     }
@@ -26,21 +31,23 @@ class ProfileStatus extends React.Component {
     }
 
     render() {
+
         return (
+            // Using local state through container component, will be refactored with hooks later on
+            // Changing state on an event - double click
+            // Deactivating when clicking out of the input
             <div>
-                {!this.state.editMode &&
-                <div>
-                    <span onClick={this.activateEditMode}>{this.props.status || "-------"}</span>
-                </div>
-                }
-                {this.state.editMode &&
-                <div>
-                    <input onChange={this.onStatusChange} autoFocus={true}
-                           onBlur={this.deactivateEditMode} value={this.state.status} />
-                </div>
+                {!this.state.editState ?
+                    <div>
+                        <span onClick={ this.activateEditState }>{this.props.status || 'No status yet, please enter something!'}</span>
+                    </div>
+                    : <div>
+                        <input autoFocus={true} onBlur={ this.deactivateEditState }
+                               onChange={this.onStatusChange} value={this.state.status}/>
+                    </div>
                 }
             </div>
-        )
+        );
     }
 }
 

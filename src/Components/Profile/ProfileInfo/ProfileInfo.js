@@ -16,7 +16,7 @@ const ProfileInfo = (props) => {
             {/*</div>*/}
             {/*same as if statement above (<img src={props.profile?.photos.large} />)*/}
             <div>
-                <img src={props.profile.photos.large} />
+                <img src={props.profile.photos.large} alt={''} />
                 <ProfileStatus status={"Hello!"}/>
 
                 <div>Facebook page: {props.profile.contacts.facebook}</div>

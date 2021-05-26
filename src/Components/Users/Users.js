@@ -6,7 +6,7 @@ import {NavLink} from "react-router-dom";
 let Users = (props) => {
 
     //to round up a number
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+    // let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     // console.log("Total #", pagesCount);
     let pages = [];
     //limiting pages manually to 50
@@ -39,7 +39,7 @@ let Users = (props) => {
         <div>
           <NavLink to={"/profile/" + u.id}>
              <img src={u.photos.small != null ? u.photos.small : Avatar}
-                  className={styles.userPhoto}/>
+                  className={styles.userPhoto} alt={''}/>
           </NavLink>
         </div>
        <div>

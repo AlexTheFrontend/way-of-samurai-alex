@@ -4,7 +4,7 @@ import React from "react";
 
 const Preloader = (props) => {
   return <div>
-  <img className={styles.scater} src={scater} />
+  <img className={styles.scater} src={scater} alt={''}/>
   </div>
 }
 

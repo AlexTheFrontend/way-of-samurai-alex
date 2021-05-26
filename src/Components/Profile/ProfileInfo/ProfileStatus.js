@@ -1,43 +1,46 @@
 import React from 'react';
-// import classes from './ProfileInfo.module.css';
-// import Preloader from "../../Common/Preloader/Preloader";
+import s from './ProfileInfo.module.css';
 
 class ProfileStatus extends React.Component {
     state = {
-        editState: false,
+        editMode: false,
+        status: this.props.status
     }
 
-    // method
-    // setState is async
-    activateEditState () {
+    activateEditMode = () => {
         this.setState({
-            editState: true,
-        })
+            editMode: true
+        });
+    }
+    deactivateEditMode = () => {
+        this.setState({
+            editMode: false
+        });
+        this.props.updateStatus(this.state.status);
     }
 
-    deactivateEditState () {
+    onStatusChange = (e) => {
         this.setState({
-            editState: false,
-        })
+            status: e.currentTarget.value
+        });
     }
 
     render() {
-
         return (
-            // Using local state through container component, will be refactored with hooks later on
-            // Changing state on an event - double click
-            // Deactivating when clicking out of the input
             <div>
-                {!this.state.editState ?
-                    <div>
-                        <span onDoubleClick={ this.activateEditState.bind(this) }>{this.props.status}</span>
-                    </div>
-                    : <div>
-                        <input autoFocus={true} onBlur={ this.deactivateEditState.bind(this) } value={this.props.status}/>
-                    </div>
+                {!this.state.editMode &&
+                <div>
+                    <span onClick={this.activateEditMode}>{this.props.status || "-------"}</span>
+                </div>
+                }
+                {this.state.editMode &&
+                <div>
+                    <input onChange={this.onStatusChange} autoFocus={true}
+                           onBlur={this.deactivateEditMode} value={this.state.status} />
+                </div>
                 }
             </div>
-        );
+        )
     }
 }
 

@@ -10,7 +10,8 @@ import Friends from "./Components/Friends/Friends";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
-import LoginPage from "./Login/Login";
+import Login from "./Components/Login/Login";
+
 
 // import NumericInput from "./Components/NumericField/NumericField";
 
@@ -30,7 +31,7 @@ const App = (props) => {
             {/*with props.messages I am taking data from the level above*/}
             <Route path="/dialogs" render={() => <DialogsContainer/>}/>
             <Route path="/users" render={() => <UsersContainer />}/>
-            <Route path="/login" render={() => <LoginPage />}/>
+            <Route path="/login" render={() => <Login />}/>
 
             {/* To be used later on */}
             <Route path="/news" render={() => <News/>}/>

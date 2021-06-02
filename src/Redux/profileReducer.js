@@ -1,7 +1,6 @@
 import {profileAPI, usersAPI} from "../api/Api";
 
 const addPost = 'ADD-POST';
-const updateNewPost = 'UPDATE-NEW-POST-TEXT';
 const setUserProfileCase = 'SET-USER-PROFILE';
 const setStatusCase = 'SET-STATUS'
 
@@ -12,7 +11,6 @@ let initialState = {
         {id: 3, message: 'Haha how are you mate?', likesCount: 18},
         {id: 4, message: 'Sweet as!', likesCount: 46},
     ],
-    newPostText: 'Placeholder Alex',
     profile: null,
     status: '',
 };
@@ -25,20 +23,13 @@ const profileReducer = (state = initialState, action) => {
         case addPost: {
             let newPost = {
                 id: 10,
-                message: state.newPostText,
+                message: action.newPostText,
                 likesCount: 0,
             };
             return {
                 ...state,
                 posts: [...state.posts, newPost],
                 newPostText: ''
-            }
-        }
-        // Creating state copies to change and work with, we can't change the parent object
-        case updateNewPost: {
-            return {
-                ...state,
-                newPostText: action.newText,
             }
         }
 
@@ -62,9 +53,8 @@ const profileReducer = (state = initialState, action) => {
 }
 
 //Action creators
-export const addPostActionCreator = () => ({type: addPost})
+export const addPostActionCreator = (newPostText) => ({type: addPost, newPostText})
 export const setUserProfile = (profile) => ({type: setUserProfileCase, profile})
-export const updateNewPostTextActionCreator = (text) => ({type: updateNewPost, newText: text});
 export const setStatus = (status) => ({type: setStatusCase, status});
 
 //Thunks

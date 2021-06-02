@@ -1,4 +1,3 @@
-const updateNewMessageBody = 'UPDATE-NEW-MESSAGE-BODY';
 const sendMessage = 'SEND-MESSAGE';
 
 let initialState = {
@@ -19,26 +18,18 @@ let initialState = {
     {id: 6, message: 'Who made it?'},
     {id: 7, message: 'Some Russian developer, I think'},
     {id: 8, message: 'I want to hire him now!'},
-  ],
-  newMessageBody: '',
+  ]
 }
 
 const dialogReducer = (state = initialState, action) => {
   // debugger;
   // Switch instead of if/else if expression
   switch (action.type) {
-    case updateNewMessageBody:
-    return {
-      ...state,
-      newMessageBody: action.body
-    }
-
     case sendMessage: {
 
-      let body = state.newMessageBody;
+      let body = action.newMessageBody;
       return {
         ...state,
-        newMessageBody: '',
         messages: [...state.messages, {id: 6, message: body}]
       }
     }
@@ -48,8 +39,7 @@ const dialogReducer = (state = initialState, action) => {
   }
 }
 
-export const sendMessageCreator = () => ({type: sendMessage});
-export const updateNewMessageBodyCreator = (body) => ({type: updateNewMessageBody, body: body});
+export const sendMessageCreator = (newMessageBody) => ({type: sendMessage, newMessageBody});
 
 export default dialogReducer;
 

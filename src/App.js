@@ -15,6 +15,7 @@ import {connect} from "react-redux";
 import {initialiseApp} from "./Redux/appReducer";
 import Preloader from "./Components/Common/Preloader/Preloader";
 import {compose} from "redux";
+import {withRouter} from "react-router";
 
 class App extends Component {
 
@@ -25,16 +26,14 @@ class App extends Component {
     render() {
 // debugger;
 
-        if (!this.props.initialised) {
-            return <Preloader/>
-        }
+        // if (!this.props.initialised) {
+        //     return <Preloader/>
+        // }
 
         return (
-            <BrowserRouter>
             <div className='appWrapper'>
                 <HeaderContainer/>
                 <Navbar/>
-                {/*For routing purposes*/}
                 <div className="appWrapperContent">
                     {/*adding an optional URL parameter*/}
                     <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
@@ -51,7 +50,6 @@ class App extends Component {
                     <Route path="/friends" render={() => <Friends/>}/>
                 </div>
             </div>
-            </BrowserRouter>
         );
     }
 }
@@ -60,5 +58,6 @@ const mapStateToProps = (state) => ({
   initialised: state.app.initialised
 })
 
-export default compose (
+export default compose(
+    withRouter,
     connect(mapStateToProps, {initialiseApp}))(App);

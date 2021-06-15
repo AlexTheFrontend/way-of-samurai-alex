@@ -105,7 +105,6 @@ export const requestUsers = (currentPage, pageSize) => {
             // as per provided API
             dispatch(setUsers(data.items));
             dispatch(setTotalUsersCount(data.totalUsersCount));
-
         })
     }
 }

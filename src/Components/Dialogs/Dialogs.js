@@ -11,11 +11,11 @@ const Dialogs = (props) => {
 
   // with props.messages I am taking data from the level above
   let dialogsElements = state.dialogs
-      .map(d => <DialogsItem name={d.name} id={d.id}/>);
+      .map(d => <DialogsItem name={d.name} id={d.id} key={d.id}/>);
 
   // with props.messages I am taking data from the level above
   let messageElements = state.messages
-      .map(m => <Message message={m.message} id={m.id}/>);
+      .map(m => <Message message={m.message} id={m.id} key={m.id}/>);
 
   let addNewMessage = (values) => {
       props.sendMessage(values.newMessageBody);

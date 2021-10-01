@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './ProfileInfo.module.css';
+import {setStatus} from "../../../Redux/profileReducer";
 // import Preloader from "../../Common/Preloader/Preloader";
 
 export const ProfileStatusWithHooks = (props) => {
@@ -13,6 +14,10 @@ export const ProfileStatusWithHooks = (props) => {
 
     const [editMode, setEditMode] = useState(false)
     const [statusHook, setStatusHook] = useState(status)
+
+    useEffect(() => {
+        setStatusHook(status)
+    }, [status])
 
     // entering edit mode
     const activateEditMode = () => {

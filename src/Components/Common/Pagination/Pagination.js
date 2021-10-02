@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./users.module.css";
+import styles from "./Pagination.module.css";
 
 let Pagination = (props) => {
 

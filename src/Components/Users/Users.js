@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./users.module.css";
 import Avatar from "../../Pictures/Avatar.jpeg";
 import {NavLink} from "react-router-dom";
-import Pagination from "./Pagination";
+import Pagination from "../Common/Pagination/Pagination";
 
 let Users = ({currentPage, onPageChange, totalUsersCount, pageSize ,...props}) => {
 

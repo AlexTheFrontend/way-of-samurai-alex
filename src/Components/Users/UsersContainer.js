@@ -61,10 +61,8 @@ class UsersContainer extends React.Component {
 // let AuthRedirectComponent = withAuthRedirect(UsersContainer);
 
 let mapStateToProps = (state) => {
-    // console.log('>>>>HI<<<<')
     return {
         // getting state from users page as a container component
-        // users: getUsers(state),
         users: getUsers(state),
         pageSize: getPageSize(state),
         totalUsersCount: getTotalUsersCount(state),

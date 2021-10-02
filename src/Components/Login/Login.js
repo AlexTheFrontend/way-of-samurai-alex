@@ -7,20 +7,27 @@ import {login} from "../../Redux/authReducer";
 import {Redirect} from "react-router";
 import styles from "../Common/FormControls/FormControls.module.scss"
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
-                <Field placeholder={"Email"} name={"email"} component={Input} validate={[required]}/>
+                <Field placeholder={"Email"}
+                       name={"email"}
+                       component={Input}
+                       validate={[required]}/>
             </div>
             <div>
-                <Field placeholder={"Password"} name={"password"} type="password" component={Input} validate={[required]}/>
+                <Field placeholder={"Password"}
+                       name={"password"}
+                       type="password"
+                       component={Input}
+                       validate={[required]}/>
             </div>
             <div>
                 <Field component="input" name={"rememberMe"} type={"checkbox"}/> remember me
             </div>
-            { props.error && <div className={styles.formsError}>
-                {props.error}
+            { error && <div className={styles.formsError}>
+                {error}
             </div> }
             <div>
                 <button>Log in</button>

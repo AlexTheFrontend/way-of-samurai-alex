@@ -2,37 +2,14 @@ import React from 'react';
 import styles from "./users.module.css";
 import Avatar from "../../Pictures/Avatar.jpeg";
 import {NavLink} from "react-router-dom";
+import Pagination from "./Pagination";
 
-let Users = (props) => {
-
-    //to round up a number
-    // let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-    // console.log("Total #", pagesCount);
-    let pages = [];
-    //limiting pages manually to 50
-    for (let i = 1; i <= 50; i++) {
-        pages.push(i);
-    }
-
-    //other option
-    // for (let i=Math.max(this.props.currentPage - 5, 1); i <= Math.max(1, Math.min(this.props.currentPage + 5, pagesCount)); i++) {
-    //   pages.push(i);
-    // }
-
+let Users = ({currentPage, onPageChange, totalUsersCount, pageSize ,...props}) => {
 
     return <div className={styles.usersContainer}>
 
-        <div className={styles.pagesScroll}>
-            {pages.map(p => {
-                // console.log("Alex",props.onPageChange)
-                return <span className={props.currentPage === p && styles.selectedPage}
-                             onClick={(e) => {
-                                 props.onPageChange(p)
-                             }}>{p}</span>
-            })}
-        </div>
+        <Pagination currentPage={currentPage} onPageChange={onPageChange} totalUsersCount={totalUsersCount} pageSize={pageSize} />
         {
-
             props.users.map(u =>
                 <div key={u.id}>
       <span>

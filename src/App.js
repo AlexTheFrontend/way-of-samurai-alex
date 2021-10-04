@@ -11,11 +11,11 @@ import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import Login from "./Components/Login/Login";
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {initialiseApp} from "./Redux/appReducer";
-import Preloader from "./Components/Common/Preloader/Preloader";
 import {compose} from "redux";
 import {withRouter} from "react-router";
+import store from "./Redux/reduxStore";
 
 class App extends Component {
 
@@ -24,11 +24,6 @@ class App extends Component {
     }
 
     render() {
-// debugger;
-
-        // if (!this.props.initialised) {
-        //     return <Preloader/>
-        // }
 
         return (
             <div className='appWrapper'>
@@ -58,6 +53,16 @@ const mapStateToProps = (state) => ({
   initialised: state.app.initialised
 })
 
-export default compose(
+const AppContainer = compose(
     withRouter,
     connect(mapStateToProps, {initialiseApp}))(App);
+
+const AlexSocialNetworkApp = (props) => {
+    return <BrowserRouter>
+        <Provider store={store}>
+            <AppContainer />
+        </Provider>
+    </BrowserRouter>
+}
+
+export  default AlexSocialNetworkApp

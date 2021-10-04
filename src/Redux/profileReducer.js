@@ -3,6 +3,7 @@ import {profileAPI, usersAPI} from "../api/Api";
 const addPost = 'ADD-POST';
 const setUserProfileCase = 'SET-USER-PROFILE';
 const setStatusCase = 'SET-STATUS'
+const deleteOnePost = 'DELETE-POST'
 
 let initialState = {
     posts: [
@@ -47,6 +48,13 @@ const profileReducer = (state = initialState, action) => {
             }
         }
 
+        case deleteOnePost: {
+            return {
+                ...state,
+                posts: state.posts.filter(p => p.id !== action.postId)
+            }
+        }
+
         default:
             return state;
     }
@@ -56,28 +64,25 @@ const profileReducer = (state = initialState, action) => {
 export const addPostActionCreator = (newPostText) => ({type: addPost, newPostText})
 export const setUserProfile = (profile) => ({type: setUserProfileCase, profile})
 export const setStatus = (status) => ({type: setStatusCase, status});
+export const deletePost = (postId) => ({type: deleteOnePost, postId});
 
 //Thunks
-export const getUserProfile = (userId) => (dispatch) => {
-    return usersAPI.getProfile(userId).then(response => {
-        dispatch(setUserProfile(response.data));
-    })
+export const getUserProfile = (userId) => async (dispatch) => {
+    const response = await usersAPI.getProfile(userId)
+    dispatch(setUserProfile(response?.data));
 }
 
-export const getStatus = (userId) => (dispatch) => {
-     profileAPI.getStatus(userId)
-        .then(response => {
-            dispatch(setStatus(response.data));
-        })
+export const getStatus = (userId) => async (dispatch) => {
+    const response = await profileAPI.getStatus(userId)
+    dispatch(setStatus(response?.data));
 }
 
-export const updateStatus = (status) => (dispatch) => {
-    profileAPI.updateStatus(status)
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setStatus(status));
-            }
-        });
+export const updateStatus = (status) => async (dispatch) => {
+    const response = await profileAPI.updateStatus(status)
+
+    if (!response?.data.resultCode) {
+        dispatch(setStatus(status));
+    }
 }
 
 

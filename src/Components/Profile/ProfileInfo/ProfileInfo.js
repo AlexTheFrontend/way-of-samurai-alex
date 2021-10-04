@@ -1,27 +1,23 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css';
 import Preloader from "../../Common/Preloader/Preloader";
+import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
+import Avatar from "../../../Pictures/Avatar.jpeg";
 
-
-const ProfileInfo = (props) => {
-    if (!props.profile) {
+const ProfileInfo = ({profile, updateStatus, status}) => {
+    if (!profile) {
        return <Preloader />
     }
     return (
         <div className={classes.content}>
-            <div className={classes.hello}>
-                <img className={classes.profile_img}
-                     src='https://filedn.com/ltOdFv1aqz1YIFhf4gTY8D7/ingus-info/BLOGS/Photography-stocks3/stock-photography-slider.jpg'
-                     alt='imgHolder'/>
-            </div>
-            {/*same as if statement above (<img src={props.profile?.photos.large} />)*/}
             <div>
-                <img src={props.profile.photos.large} />
-                <div>Facebook page: {props.profile.contacts.facebook}</div>
-                <div>Github page: {props.profile.contacts.github}</div>
-                <div>Full name: {props.profile.fullName}</div>
-                <div>UserId: {props.profile.userId}</div>
-                <div>Looking for a job description: {props.profile.lookingForAJobDescription}</div>
+                <img style={{width: 200, borderRadius: 20}} src={!profile.photos.large ? Avatar : profile.photos.large} alt={"User's Avatar"} />
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+                <div style={{marginTop: 10}}>Facebook page: {profile.contacts.facebook}</div>
+                <div>Github page: {profile.contacts.github}</div>
+                <div>Full name: {profile.fullName}</div>
+                <div>UserId: {profile.userId}</div>
+                <div>Looking for a job description: {profile.lookingForAJobDescription}</div>
             </div>
         </div>
     );

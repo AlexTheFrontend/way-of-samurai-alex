@@ -7,7 +7,7 @@ let Users = ({currentPage, onPageChange, totalUsersCount, pageSize, users, ...pr
 
     return <div className={styles.usersContainer}>
 
-        <Pagination currentPage={currentPage} onPageChange={onPageChange} totalUsersCount={totalUsersCount}
+        <Pagination currentPage={currentPage} onPageChange={onPageChange} totalItemsCount={totalUsersCount}
                     pageSize={pageSize}/>
         {
             users.map(u =>

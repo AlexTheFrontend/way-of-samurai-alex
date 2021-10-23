@@ -4,6 +4,7 @@ const addPost = 'ADD-POST';
 const setUserProfileCase = 'SET-USER-PROFILE';
 const setStatusCase = 'SET-STATUS'
 const deleteOnePost = 'DELETE-POST'
+const saveNewAvatar = 'SAVE-AVATAR-SUCCESS'
 
 let initialState = {
     posts: [
@@ -55,6 +56,13 @@ const profileReducer = (state = initialState, action) => {
             }
         }
 
+        case saveNewAvatar: {
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photos}
+            }
+        }
+
         default:
             return state;
     }
@@ -65,6 +73,7 @@ export const addPostActionCreator = (newPostText) => ({type: addPost, newPostTex
 export const setUserProfile = (profile) => ({type: setUserProfileCase, profile})
 export const setStatus = (status) => ({type: setStatusCase, status});
 export const deletePost = (postId) => ({type: deleteOnePost, postId});
+export const saveAvatarSuccess = (photos) => ({type: saveNewAvatar, photos});
 
 //Thunks
 export const getUserProfile = (userId) => async (dispatch) => {
@@ -82,6 +91,14 @@ export const updateStatus = (status) => async (dispatch) => {
 
     if (!response?.data.resultCode) {
         dispatch(setStatus(status));
+    }
+}
+
+export const saveAvatar = (file) => async (dispatch) => {
+    const response = await profileAPI.saveAvatar(file)
+
+    if (!response?.data.resultCode) {
+        dispatch(saveAvatarSuccess(response.data.data.photos));
     }
 }
 

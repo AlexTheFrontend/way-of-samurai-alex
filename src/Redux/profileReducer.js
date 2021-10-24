@@ -102,5 +102,13 @@ export const saveAvatar = (file) => async (dispatch) => {
     }
 }
 
+export const saveProfile = (profile) => async (dispatch) => {
+    const response = await profileAPI.saveProfile(profile)
+
+    if (!response?.data.resultCode) {
+        // dispatch(saveAvatarSuccess(response.data.data.photos));
+    }
+}
+
 
 export default profileReducer;

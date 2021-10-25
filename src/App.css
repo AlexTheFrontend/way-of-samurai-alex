@@ -3,13 +3,13 @@
   width: 1280px;
   margin: 0 auto;
 
-  grid-template-areas: 
+  grid-template-areas:
   "h h h"
   "n c i";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   grid-gap: 1px;
-  
+
 }
 
 

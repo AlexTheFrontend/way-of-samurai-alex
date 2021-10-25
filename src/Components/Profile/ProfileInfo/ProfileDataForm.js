@@ -7,10 +7,6 @@ import {createField, Input, Textarea} from "../../Common/FormControls/FormContro
 const ProfileDataForm = ({handleSubmit, profile, error}) => {
     return <form onSubmit={handleSubmit}>
         <div>
-            <button>Save Profile</button>
-        </div>
-        {error && <div>{error}</div>}
-        <div>
             <b>Full name</b>: {createField("Full name", "fullName", [], Input)}
         </div>
         <div>
@@ -25,13 +21,18 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
             <b>About me</b>:
             {createField("About me", "aboutMe", [], Textarea)}
         </div>
-        {/*<div>*/}
-        {/*    <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {*/}
-        {/*    return <div key={key} className={classes.contact}>*/}
-        {/*        <b>{key}: {createField(key, "contacts." + key, [], Input)}</b>*/}
-        {/*    </div>*/}
-        {/*})}*/}
-        {/*</div>*/}
+        <div>
+            <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
+            return <div key={key} className={classes.contact}>
+                <b>{key}: {createField(key, "contacts." + key, [], Input)}</b>
+            </div>
+        })}
+        </div>
+        <div style={{marginTop: 10}}>
+            <button>Save Profile</button>
+        </div>
+        {/*Error for validation*/}
+        {error && <div style={{color: 'red'}}><b>{error}</b></div>}
     </form>
 }
 

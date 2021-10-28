@@ -88,11 +88,16 @@ export const getStatus = (userId) => async (dispatch) => {
 }
 
 export const updateStatus = (status) => async (dispatch) => {
-    const response = await profileAPI.updateStatus(status)
+    try {
+        const response = await profileAPI.updateStatus(status)
 
-    if (!response?.data.resultCode) {
-        dispatch(setStatus(status));
+        if (!response?.data.resultCode) {
+            dispatch(setStatus(status));
+        }
+    } catch (err) {
+        console.log(`You have an API error, please check your keys`)
     }
+
 }
 
 export const saveAvatar = (file) => async (dispatch) => {

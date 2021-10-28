@@ -1,10 +1,10 @@
 import React, {Component, Suspense} from 'react'
-import './App.css'
+import './Styles/global-styles.css'
 import Navbar from "./Components/Navbar/Navbar";
 import {BrowserRouter, Route} from "react-router-dom";
-import Music from "./Components/NewsMusicSettings/Music";
-import News from "./Components/NewsMusicSettings/News";
-import Settings from "./Components/NewsMusicSettings/Settings";
+import Music from "./Components/MockPagesForRouting/Music";
+import News from "./Components/MockPagesForRouting/News";
+import Settings from "./Components/MockPagesForRouting/Settings";
 import Friends from "./Components/Friends/Friends";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import Login from "./Components/Login/Login";
@@ -33,8 +33,9 @@ class App extends Component {
                 <Navbar/>
                 <div className="appWrapperContent">
                     <Suspense fallback={"Loading... Please hold on, contect is coming"}>
-                        <Switch >
-                            <Route exact path="/">{this.props.initialized ? <Redirect to="/profile" /> : <Login/>}</Route>
+                        <Switch>
+                            <Route exact path="/">{this.props.initialized ? <Redirect to="/profile"/> :
+                                <Login/>}</Route>
                             {/*adding an optional URL parameter*/}
                             <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
                             {/*the way to do it if defining on top*/}
@@ -48,7 +49,7 @@ class App extends Component {
                             <Route path="/settings" render={() => <Settings/>}/>
                             <Route path="/friends" render={() => <Friends/>}/>
                             {/* "*" - is a wildcard here */}
-                            <Route path='*' render={() => <div><img src={CatNotFound} /></div>}/>
+                            <Route path='*' render={() => <div><img src={CatNotFound}/></div>}/>
                         </Switch>
                     </Suspense>
                 </div>

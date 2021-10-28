@@ -1,6 +1,5 @@
-.d {
+.container {
     background: deepskyblue;
-    /*height: 10rem;*/
     display: grid;
     grid-template-columns: 2fr 5fr;
 }

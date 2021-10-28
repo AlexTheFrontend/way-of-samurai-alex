@@ -22,7 +22,7 @@ const MyPosts = React.memo((props) => {
                 <h3>My posts</h3>
             </div>
             <div>
-                <AddPostFormRedux onSubmit={addNewPost} />
+                <AddPostFormRedux onSubmit={addNewPost}/>
             </div>
             <div className={classes.post}>
                 {postElements}
@@ -37,7 +37,7 @@ const AddPostForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <Field component={Textarea} name="newPostText" placeholder="Please create a post"
-            validate={[required, maxLength10]} />
+                   validate={[required, maxLength10]}/>
             <div>
                 <button>Add Post</button>
             </div>

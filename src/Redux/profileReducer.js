@@ -1,9 +1,11 @@
 import {profileAPI, usersAPI} from "../api/Api";
+import {stopSubmit} from "redux-form";
 
 const addPost = 'ADD-POST';
 const setUserProfileCase = 'SET-USER-PROFILE';
 const setStatusCase = 'SET-STATUS'
 const deleteOnePost = 'DELETE-POST'
+const saveNewAvatar = 'SAVE-AVATAR-SUCCESS'
 
 let initialState = {
     posts: [
@@ -55,6 +57,13 @@ const profileReducer = (state = initialState, action) => {
             }
         }
 
+        case saveNewAvatar: {
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photos}
+            }
+        }
+
         default:
             return state;
     }
@@ -65,6 +74,7 @@ export const addPostActionCreator = (newPostText) => ({type: addPost, newPostTex
 export const setUserProfile = (profile) => ({type: setUserProfileCase, profile})
 export const setStatus = (status) => ({type: setStatusCase, status});
 export const deletePost = (postId) => ({type: deleteOnePost, postId});
+export const saveAvatarSuccess = (photos) => ({type: saveNewAvatar, photos});
 
 //Thunks
 export const getUserProfile = (userId) => async (dispatch) => {
@@ -78,10 +88,35 @@ export const getStatus = (userId) => async (dispatch) => {
 }
 
 export const updateStatus = (status) => async (dispatch) => {
-    const response = await profileAPI.updateStatus(status)
+    try {
+        const response = await profileAPI.updateStatus(status)
+
+        if (!response?.data.resultCode) {
+            dispatch(setStatus(status));
+        }
+    } catch (err) {
+        console.log(`You have an API error, please check your keys`)
+    }
+
+}
+
+export const saveAvatar = (file) => async (dispatch) => {
+    const response = await profileAPI.saveAvatar(file)
 
     if (!response?.data.resultCode) {
-        dispatch(setStatus(status));
+        dispatch(saveAvatarSuccess(response.data.data.photos));
+    }
+}
+
+export const saveProfile = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.userId
+    const response = await profileAPI.saveProfile(profile)
+
+    if (!response?.data.resultCode) {
+        dispatch(getUserProfile(userId));
+    } else {
+        dispatch(stopSubmit("edit-profile", {_error: response.data.messages[0]}));
+        return Promise.reject(response.data.messages[0]);
     }
 }
 

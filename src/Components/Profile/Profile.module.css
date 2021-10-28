@@ -2,9 +2,9 @@
     border-radius: 10px;
     width: 600px;
     height: 100px;
-  }
+}
 
-  .content {
+.content {
     grid-area: c;
-    background-color:cornflowerblue;
-  }
+    background-color: cornflowerblue;
+}

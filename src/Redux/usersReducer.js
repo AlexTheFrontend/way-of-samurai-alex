@@ -11,7 +11,7 @@ const toggleIsFollowingProgressCase = 'TOGGLE-IS-FOLLOWING-PROGRESS';
 
 let initialState = {
     users: [],
-    pageSize: 5,
+    pageSize: 7,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: true,
@@ -112,7 +112,7 @@ const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) =>
 
 export const follow = (userId) => {
     return async (dispatch) => {
-       await followUnfollowFlow(dispatch, userId, usersAPI.follow.bind(usersAPI), followSuccess)
+        await followUnfollowFlow(dispatch, userId, usersAPI.follow.bind(usersAPI), followSuccess)
     }
 }
 

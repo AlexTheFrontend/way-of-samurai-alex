@@ -30,7 +30,7 @@ export const initialiseApp = () => (dispatch) => {
     // promise.then(() => {
     //     dispatch(setInitialisedSuccess());
     // })
-    Promise.all ([promise])
+    Promise.all([promise])
         .then(() => {
             dispatch(setInitialisedSuccess());
         })

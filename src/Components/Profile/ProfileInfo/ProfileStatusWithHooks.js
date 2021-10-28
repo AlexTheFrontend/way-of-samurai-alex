@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import styles from './ProfileInfo.module.css';
-import {setStatus} from "../../../Redux/profileReducer";
-// import Preloader from "../../Common/Preloader/Preloader";
 
 export const ProfileStatusWithHooks = (props) => {
 
@@ -38,13 +36,13 @@ export const ProfileStatusWithHooks = (props) => {
         <div>
             {!editMode && <div>
                     <span className={styles.status}
-                        onClick={activateEditMode}>{status || 'No status yet, please enter something!'}</span>
-                </div>}
+                          onClick={activateEditMode}>{status || 'No status yet, please enter something!'}</span>
+            </div>}
 
             {editMode && <div>
-                    <input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode}
-                    value={statusHook}/>
-                </div>
+                <input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode}
+                       value={statusHook}/>
+            </div>
             }
         </div>
     );

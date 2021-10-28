@@ -3,7 +3,7 @@ import {Field, reduxForm} from "redux-form";
 import {createField, Input} from "../Common/FormControls/FormControls";
 import {required} from "../../Utils/Validators/validators";
 import {connect} from "react-redux";
-import {getCaptchaURL, login} from "../../Redux/authReducer";
+import {login} from "../../Redux/authReducer";
 import {Redirect} from "react-router";
 import styles from "../Common/FormControls/FormControls.module.scss"
 
@@ -28,9 +28,9 @@ const LoginForm = ({handleSubmit, error, captchaURL}) => {
             </div>
             {captchaURL && <img src={captchaURL}/>}
             {captchaURL && createField("Symbols from an image", "captcha", [required], Input, {})}
-            { error && <div className={styles.formsError}>
+            {error && <div className={styles.formsError}>
                 {error}
-            </div> }
+            </div>}
             <div>
                 <button>Log in</button>
             </div>
@@ -44,11 +44,11 @@ const LoginReduxForm = reduxForm({
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha )
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
     }
 
     if (props.isAuth) {
-        return <Redirect to={"/profile"} />
+        return <Redirect to={"/profile"}/>
     }
 
     return <div>

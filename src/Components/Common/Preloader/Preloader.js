@@ -3,9 +3,9 @@ import scater from "../../../Pictures/Scater.gif";
 import React from "react";
 
 const Preloader = (props) => {
-  return <div>
-  <img className={styles.scater} src={scater} alt={''}/>
-  </div>
+    return <div>
+        <img className={styles.skater} src={scater} alt={''}/>
+    </div>
 }
 
 export default Preloader;

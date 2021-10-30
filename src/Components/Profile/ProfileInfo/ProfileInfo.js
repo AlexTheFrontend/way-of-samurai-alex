@@ -34,6 +34,7 @@ const ProfileInfo = ({profile, updateStatus, status, isOwner, saveAvatar, savePr
                      alt={"User's Avatar"}/>
                 {isOwner && <input style={{display: 'block', marginTop: 10, marginBottom: 10}} type={"file"}
                                    onChange={onMainAvatarSelected}/>}
+                                   <div style={{padding: 5, paddingLeft:10, fontWeight: "bold"}}>Status:</div>
                 <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
 
                 {editMode

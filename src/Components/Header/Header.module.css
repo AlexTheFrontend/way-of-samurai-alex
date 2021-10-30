@@ -6,12 +6,28 @@
 .header img {
     width: 55px;
     height: 55px;
+    border-radius: 30px;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.myHeader {
+    color: #FFF;
+    font-size: 30px;
+    font-weight: bolder;
+    margin-left: 120px;
+    margin-top: -50px;
 }
 
 .loginBlock {
     float: right;
+    margin-top: 15px;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.loginBlock a {
-    color: white;
+.containerWrapper {
+    grid-area: h;
 }
+

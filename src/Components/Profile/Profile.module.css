@@ -5,6 +5,6 @@
 }
 
 .content {
-    grid-area: c;
-    background-color: cornflowerblue;
+    display: flex;
+    justify-content: center;
 }

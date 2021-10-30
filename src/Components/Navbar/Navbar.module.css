@@ -3,14 +3,13 @@
     background: linear-gradient(to bottom, #131414 30%, #ebfa66);
     min-height: 80vh;
     padding-top: 10px;
-    font-family: Roboto;
     font-size: 1.3rem;
 }
 
 .item a {
     color: white;
     text-decoration: none;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .item a:hover {
@@ -25,12 +24,3 @@
     text-decoration: underline;
 }
 
-.friends a {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-}
-
-.friends {
-    margin-top: 20px;
-}

@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 
 const Header = (props) => {
     return (
+        <div className={classes.containerWrapper}>
         <header className={classes.header}>
             <img src='https://image.freepik.com/free-vector/abstract-logo-with-colorful-leaves_1025-695.jpg'
                  alt='Logo'/>
@@ -13,6 +14,8 @@ const Header = (props) => {
                     : <NavLink to={'/login'}>Login</NavLink>}
             </div>
         </header>
+            <div className={classes.myHeader}>{`MetaBook social network`}</div>
+        </div>
     )
 }
 

@@ -1,31 +1,26 @@
 .appWrapper {
-  display: grid;
-  margin: 0 auto;
-  grid-template-areas:
+    display: grid;
+    margin: 0 auto;
+    grid-template-areas:
   "h h h"
   "n c i";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 1px;
-
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 180px 10fr;
+    min-height: 100vh;
 }
 
-html {
-  min-height: 100vh;
-  width: 100%;
-}
+
 
 /*todo refactor background*/
 body {
-  background-color: #FAFAFA;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-  sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    background-color: #FAFAFA;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 

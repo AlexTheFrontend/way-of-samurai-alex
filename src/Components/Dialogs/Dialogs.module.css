@@ -36,12 +36,12 @@
 }
 
 .addMessage {
-    background-color: #bbb;
+    background-color: black;
     padding: .5em;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 6px;
-    color: #fff;
+    color: gold;
     font-family: 'Oswald';
     font-size: 16px;
     text-decoration: none;
@@ -50,6 +50,7 @@
 
 .addMessage:hover {
     border: none;
-    background: forestgreen;
+    background: green;
+    color: white;
     box-shadow: 0px 0px 1px #777;
 }

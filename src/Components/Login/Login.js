@@ -32,7 +32,7 @@ const LoginForm = ({handleSubmit, error, captchaURL}) => {
                 {error}
             </div>}
             <div>
-                <button>Log in</button>
+                <button className={styles.loginButton}>Log in</button>
             </div>
         </form>)
 }
@@ -51,7 +51,7 @@ const Login = (props) => {
         return <Redirect to={"/profile"}/>
     }
 
-    return <div>
+    return <div className={styles.loginForm}>
         <h1>Login</h1>
         <LoginReduxForm onSubmit={onSubmit} captchaURL={props.captchaURL}/>
     </div>

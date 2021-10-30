@@ -30,7 +30,6 @@ const User = ({user, followingInProgress, unfollow, follow}) => {
               <div><b>Username:</b> {user.name}</div>
             <div>{user?.status}</div>
             <div><b>User Id:</b>{` ${user.id}`}</div>
-            <div>{user.status}</div>
           </span>
         </span>
     </div>

@@ -1,16 +1,18 @@
 .n {
-    background: darkorange;
-    height: 10rem;
-    color: greenyellow;
+    font-size: 30px;
+    padding: 20px;
+    font-weight: bold;
 }
 
 .m {
-    background: palevioletred;
-    height: 10rem;
+    padding: 20px;
 }
 
 .s {
-    background: lightgreen;
-    height: 10rem;
+    padding: 20px;
 }
 
+.try {
+    margin-bottom: 10px;
+    font-weight: bold;
+}

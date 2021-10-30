@@ -6,9 +6,36 @@ This project is using this API: https://social-network.samuraijs.com/docs
 
 ## Account to test functionality:
 
-- Email: free@samuraijs.com
+- Email: tichobl@gmail.com
+- Password: 123654qaz
 
-- Password: free
+## Available functionality
+- Login/Logout
+- Captcha protection on login attemps (after 5th attempt)
+- User screen:
+    * Changing profile photo and sending it to the server
+    * Changing status and saving it on the server
+    * Editing profile and saving it on the server
+    * Adding posts (without saving on server)
+    * Error validation for posts, no more than 30 symbols
+    
+- Users page:
+    * Getting real users of this API and displaying them
+    * Follow/unfollow functionality (saving on the server)
+    * Default profile picture
+    * Pagination
+    
+- Messages screen:
+    * Type and add messages
+    * Error validation for 50+ symbols
+    
+- News/Music/CS50:
+    * Static pages for routing purposes with static content
+
+- Others:    
+    * custom 404 Error if you type in wrong address
+    * Error validation for HTTP requests (if something goes wrong)
+    
 
 ## Available Scripts
 

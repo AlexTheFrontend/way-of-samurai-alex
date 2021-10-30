@@ -34,7 +34,8 @@ const ProfileInfo = ({profile, updateStatus, status, isOwner, saveAvatar, savePr
                      alt={"User's Avatar"}/>
                 {isOwner && <input style={{display: 'block', marginTop: 10, marginBottom: 10}} type={"file"}
                                    onChange={onMainAvatarSelected}/>}
-                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+                {!!status && <div style={{padding: 5, paddingLeft: 10, fontWeight: "bold"}}>Status:</div>}
+                {!!status && <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>}
 
                 {editMode
                     ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
@@ -64,7 +65,7 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
         })}
         </div>
         {isOwner && <div style={{marginTop: 10}}>
-            <button onClick={goToEditMode}>Edit Profile</button>
+            <button className={classes.editProfile} onClick={goToEditMode}>Edit Profile</button>
         </div>}
     </div>
 

@@ -1,15 +1,11 @@
 .container {
-    background: deepskyblue;
+    padding: 20px;
     display: grid;
-    grid-template-columns: 2fr 5fr;
+    grid-template-columns: 3fr 6fr;
 }
 
 .dialog {
 
-}
-
-.appWrapper {
-    color: red;
 }
 
 .dialogItems {
@@ -21,9 +17,40 @@
 }
 
 .messages {
-    color: white;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
 }
 
 .message {
 
+}
+
+.textField {
+    margin-top: 10px;
+    overflow: hidden;
+    resize: none;
+    height: 50px;
+    width: 250px;
+    border-radius: 5px;
+}
+
+.addMessage {
+    background-color: black;
+    padding: .5em;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 6px;
+    color: gold;
+    font-family: 'Oswald';
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+}
+
+.addMessage:hover {
+    border: none;
+    background: green;
+    color: white;
+    box-shadow: 0px 0px 1px #777;
 }

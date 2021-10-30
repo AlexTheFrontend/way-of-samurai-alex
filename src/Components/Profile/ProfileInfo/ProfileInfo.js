@@ -64,7 +64,7 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
         })}
         </div>
         {isOwner && <div style={{marginTop: 10}}>
-            <button onClick={goToEditMode}>Edit Profile</button>
+            <button className={classes.editProfile} onClick={goToEditMode}>Edit Profile</button>
         </div>}
     </div>
 

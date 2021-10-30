@@ -29,7 +29,7 @@ This project is using this API: https://social-network.samuraijs.com/docs
     * Type and add messages
     * Error validation for 50+ symbols
     
-- News/Music/Settings:
+- News/Music/CS50:
     * Static pages for routing purposes with static content
 
 - Others:    

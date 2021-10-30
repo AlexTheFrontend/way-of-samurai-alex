@@ -10,8 +10,8 @@ const Header = (props) => {
                  alt='Logo'/>
             <div className={classes.loginBlock}>
                 {props.isAuth
-                    ? <div>{props.login} - <button onClick={props.logout}>Log out</button></div>
-                    : <NavLink to={'/login'}>Login</NavLink>}
+                    ? <div>{props.login} - <button className={classes.loginButton} onClick={props.logout}>Log out</button></div>
+                    : <NavLink to={'/login'}><button className={classes.loginButtonBefore}>Login</button></NavLink>}
             </div>
         </header>
             <div className={classes.myHeader}>{`MetaBook social network`}</div>

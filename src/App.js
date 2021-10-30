@@ -4,7 +4,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import {BrowserRouter, Route} from "react-router-dom";
 import Music from "./Components/MockPagesForRouting/Music";
 import News from "./Components/MockPagesForRouting/News";
-import Settings from "./Components/MockPagesForRouting/Settings";
+import CS50 from "./Components/MockPagesForRouting/CS50";
 import Friends from "./Components/Friends/Friends";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import Login from "./Components/Login/Login";
@@ -46,8 +46,7 @@ class App extends Component {
                             {/* Mock pages to test Router */}
                             <Route path="/news" render={() => <News/>}/>
                             <Route path="/music" render={() => <Music/>}/>
-                            <Route path="/settings" render={() => <Settings/>}/>
-                            <Route path="/friends" render={() => <Friends/>}/>
+                            <Route path="/CS50" render={() => <CS50/>}/>
                             {/* "*" - is a wildcard here */}
                             <Route path='*' render={() => <div><img src={CatNotFound}/></div>}/>
                         </Switch>

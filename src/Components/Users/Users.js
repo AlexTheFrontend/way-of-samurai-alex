@@ -6,18 +6,21 @@ import User from "./User";
 let Users = ({currentPage, onPageChange, totalUsersCount, pageSize, users, ...props}) => {
 
     return <div className={styles.usersContainer}>
-
-        <Pagination currentPage={currentPage} onPageChange={onPageChange} totalItemsCount={totalUsersCount}
-                    pageSize={pageSize}/>
-        {
-            users.map(u =>
-                <User user={u}
-                      followingInProgress={props.followingInProgress}
-                      key={u.id}
-                      unfollow={props.unfollow}
-                      follow={props.follow}
-                />)
-        }
+        <div className={styles.paginator}>
+            <Pagination currentPage={currentPage} onPageChange={onPageChange} totalItemsCount={totalUsersCount}
+                        pageSize={pageSize}/>
+        </div>
+        <div className={styles.gridStyling}>
+            {
+                users.map(u =>
+                    <User user={u}
+                          followingInProgress={props.followingInProgress}
+                          key={u.id}
+                          unfollow={props.unfollow}
+                          follow={props.follow}
+                    />)
+            }
+        </div>
     </div>
 }
 

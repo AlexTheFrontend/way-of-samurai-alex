@@ -38,3 +38,23 @@
     box-shadow: 0px 0px 1px #777;
     color: black;
 }
+
+.saveButton {
+    background-color: black;
+    padding: .5em;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 6px;
+    color: gold;
+    font-family: 'Oswald';
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+}
+
+.saveButton:hover {
+    border: none;
+    background: green;
+    color: white;
+    box-shadow: 0px 0px 1px #777;
+}

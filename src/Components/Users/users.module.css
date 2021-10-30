@@ -8,3 +8,14 @@
 .usersContainer {
     margin: 0px 10px;
 }
+
+.gridStyling {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.paginator {
+    text-align: center;
+    padding-bottom: 30px;
+}
+

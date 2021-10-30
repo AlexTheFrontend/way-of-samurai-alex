@@ -11,7 +11,7 @@ const toggleIsFollowingProgressCase = 'TOGGLE-IS-FOLLOWING-PROGRESS';
 
 let initialState = {
     users: [],
-    pageSize: 7,
+    pageSize: 21,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: true,

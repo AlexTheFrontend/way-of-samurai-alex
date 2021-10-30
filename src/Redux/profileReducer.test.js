@@ -1,6 +1,6 @@
 import profileReducer, {addPostActionCreator, deletePost} from "./profileReducer";
 
-describe ('Tests for my project', () => {
+describe('Tests for my project', () => {
     const state = {
         posts: [
             {id: 1, message: 'Hi how are you?', likesCount: 10},

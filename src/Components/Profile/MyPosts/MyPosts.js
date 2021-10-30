@@ -31,7 +31,7 @@ const MyPosts = React.memo((props) => {
     );
 })
 
-const maxLength10 = maxLengthCreator(10);
+const maxLength10 = maxLengthCreator(30);
 
 const AddPostForm = (props) => {
     return (

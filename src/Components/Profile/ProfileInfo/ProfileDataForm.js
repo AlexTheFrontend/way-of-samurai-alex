@@ -29,7 +29,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
         })}
         </div>
         <div style={{marginTop: 10}}>
-            <button>Save Profile</button>
+            <button className={classes.saveButton}>Save Profile</button>
         </div>
         {/*Error for validation*/}
         {error && <div style={{color: 'red'}}><b>{error}</b></div>}

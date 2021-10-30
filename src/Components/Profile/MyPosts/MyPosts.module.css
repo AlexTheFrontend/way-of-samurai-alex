@@ -1,9 +1,12 @@
 .content {
     padding: 10px;
+    margin-left: 150px;
 }
 
 .post {
     margin-top: 10px;
+    font-weight: bold;
+    font-size: 17px;
 }
 
 .addPost {

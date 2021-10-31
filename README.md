@@ -1,15 +1,16 @@
-# Backend works on localhost:3000 at this stage, will be fixed in the future.
+# Title: MetaBook social network
+#### Video Demo:  <https://youtu.be/tDFX7VDqL1I>
+#### Description:
 
-# This project is written using React/Redux as a final project for CS50
-
+This project is written using React/Redux as a final project for CS50
 This project is using this API: https://social-network.samuraijs.com/docs
 
-## Account to test functionality:
+#### Account to test functionality:
 
 - Email: tichobl@gmail.com
 - Password: 123654qaz
 
-## Available functionality
+#### Available functionality
 - Login/Logout
 - Captcha protection on login attemps (after 5th attempt)
 - User screen:
@@ -35,11 +36,23 @@ This project is using this API: https://social-network.samuraijs.com/docs
 - Others:    
     * custom 404 Error if you type in wrong address
     * Error validation for HTTP requests (if something goes wrong)
-    
+
+### Extra information
+
+React/Redux is a very popular combination to write SPA (single page applications) these days.
+I was looking for an idea what to do and as I want to become a front-end web-developer and later on
+full-stack developer I decided to go with a "Social network" project aka Facebook.
+My title even reflects recent rebranding of Facebook to Meta univerce.
+
+I did a research and found that API <https://social-network.samuraijs.com/docs> to write your own social network.
+I even deployed it with Vercel - <https://social-network-develop-alex.vercel.app/> but you supposed to have a paid subscription
+for it to work on a hosting rather than your local environment.
+
+Thanks for such an awesome experince David and Brian!
+
+I will concoder to do more CS50 courses :)
 
 ## Available Scripts
-
-In the project directory, you can run:
 
 ### `yarn start`
 

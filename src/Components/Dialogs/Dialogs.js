@@ -26,13 +26,17 @@ const Dialogs = (props) => {
     return (
 
         <div className={styles.container}>
-            <div className={styles.dialogItems}>
-                {dialogsElements}
+            <div>
+                <h2>Links to user's profiles</h2>
+                <div className={styles.dialogItems}>
+                    {dialogsElements}
+                </div>
+                <AddMessageForm onSubmit={addNewMessage}/>
             </div>
             <div className={styles.messages}>
                 <div>{messageElements}</div>
             </div>
-            <AddMessageForm onSubmit={addNewMessage}/>
+
 
         </div>
     )

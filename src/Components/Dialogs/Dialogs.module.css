@@ -8,8 +8,16 @@
 
 }
 
-.dialogItems {
+.dialogItems a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: black;
+}
 
+.dialogItems a:hover {
+    color: green;
 }
 
 .dialogItems .active {
@@ -17,6 +25,7 @@
 }
 
 .messages {
+    margin-top: 60px;
     display: flex;
     justify-content: center;
     font-weight: bold;

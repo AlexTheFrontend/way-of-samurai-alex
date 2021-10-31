@@ -1,15 +1,16 @@
-# Backend works on localhost:3000 at this stage, will be fixed in the future.
+# Title: MetaBook social network
+#### Video Demo:  <https://youtu.be/tDFX7VDqL1I>
+#### Description:
 
-# This project is written using React/Redux as a final project for CS50
-
+This project is written using React/Redux as a final project for CS50
 This project is using this API: https://social-network.samuraijs.com/docs
 
-## Account to test functionality:
+#### Account to test functionality:
 
 - Email: tichobl@gmail.com
 - Password: 123654qaz
 
-## Available functionality
+#### Available functionality
 - Login/Logout
 - Captcha protection on login attemps (after 5th attempt)
 - User screen:
@@ -38,8 +39,6 @@ This project is using this API: https://social-network.samuraijs.com/docs
     
 
 ## Available Scripts
-
-In the project directory, you can run:
 
 ### `yarn start`
 
